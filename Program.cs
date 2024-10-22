@@ -1,22 +1,37 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TaskManagement.Data;
+using TaskManagement.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Veritabanı bağlantısını ayarla
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
+    options.UseSqlite(connectionString)); // SQLite veritabanı kullanılıyor
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+// Kimlik doğrulama ve rollerin ayarlanması
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()  // Rol desteği ekleniyor
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ApplicationDbInitializer'ı çağır - Veritabanını başlat
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<ApplicationDbContext>();
+    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+
+    // Veritabanını başlat ve rollerle birlikte kullanıcıları ve görevleri yükle
+    ApplicationDbInitializer.Initialize(context, userManager, roleManager);
+}
+
+// HTTP request pipeline yapılandırması
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -24,7 +39,6 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -33,6 +47,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();  // Kimlik doğrulama middleware etkinleştirildi
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -41,3 +56,4 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.Run();
+

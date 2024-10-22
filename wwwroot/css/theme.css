@@ -1,0 +1,11 @@
+/* Dark theme */
+body.dark {
+    background-color: #121212;
+    color: #f4f4f4;
+}
+
+/* Cute theme */
+body.cute {
+    background-color: #ffccf2;
+    color: #333;
+}

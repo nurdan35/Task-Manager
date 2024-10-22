@@ -1,0 +1,29 @@
+@model TaskManagement.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+
+<h2>Edit Profile</h2>
+
+<form asp-action="EditProfile" method="post">
+    <div class="form-group">
+        <label asp-for="Nickname"></label>
+        <input asp-for="Nickname" class="form-control" />
+        <span asp-validation-for="Nickname" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Theme">Choose Theme</label>
+        <select asp-for="Theme" class="form-control">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="cute">Cute</option>
+        </select>
+        <span asp-validation-for="Theme" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+<a class="btn btn-secondary" asp-action="Dashboard">Back to Dashboard</a>
