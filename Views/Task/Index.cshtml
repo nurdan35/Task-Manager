@@ -1,0 +1,30 @@
+@model List<TaskManagement.Models.TaskItem>
+
+
+
+<h2>Tasks</h2>
+<ul>
+    @foreach (var task in Model)
+    {
+        <li>
+            <strong>@task.Title:</strong> @task.Description <br />
+            Status: <span class="badge badge-@GetStatusClass(task.Status)">@task.Status</span> | 
+            Due Date: @task.DueDate.ToString("yyyy-MM-dd") <br />
+            <a asp-action="Edit" asp-route-id="@task.Id" class="btn btn-sm btn-primary">Edit</a> |
+            <a asp-action="Delete" asp-route-id="@task.Id" class="btn btn-sm btn-danger">Delete</a>
+        </li>
+    }
+</ul>
+
+@functions {
+    private string GetStatusClass(string status) 
+    {
+        return status switch
+        {
+            "todo" => "secondary",
+            "doing" => "warning",
+            "done" => "success",
+            _ => "light"
+        };
+    }
+}

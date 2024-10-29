@@ -30,6 +30,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/nurda/TaskManagement/Views/Board/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nurda/TaskManagement/Views/Board/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nurda/TaskManagement/Views/Board/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nurda/TaskManagement/Views/Board/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/nurda/TaskManagement/Views/Board/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -42,12 +58,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/nurda/TaskManagement/Views/Notification/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpY2F0aW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/nurda/TaskManagement/Views/Profile/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nurda/TaskManagement/Views/Profile/EditProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxFZGl0UHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nurda/TaskManagement/Views/Profile/NotificationSettings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxOb3RpZmljYXRpb25TZXR0aW5ncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nurda/TaskManagement/Views/Shared/Error.cshtml]
@@ -70,8 +94,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/nurda/TaskManagement/Views/Task/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/nurda/TaskManagement/Views/Task/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nurda/TaskManagement/Views/Task/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nurda/TaskManagement/Views/_ViewImports.cshtml]

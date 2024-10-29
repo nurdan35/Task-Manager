@@ -1,7 +1,7 @@
 @model TaskManagement.Models.TaskItem
 
 @{
-    ViewData["Title"] = "Edit Task";
+ViewData["Title"] = "Edit Task";
 }
 
 <h2>Edit Task</h2>
@@ -31,9 +31,29 @@
         <span asp-validation-for="Tag" class="text-danger"></span>
     </div>
 
+    <div class="form-group">
+        <label asp-for="Priority"></label>
+        <select asp-for="Priority" class="form-control">
+            <option value="Low">Low</option>
+            <option value="Normal">Normal</option>
+            <option value="High">High</option>
+        </select>
+        <span asp-validation-for="Priority" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Status">Status</label>
+        <select asp-for="Status" class="form-control">
+            <option value="todo">To Do</option>
+            <option value="doing">In Progress</option>
+            <option value="done">Completed</option>
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+
     <div class="form-check">
         <input asp-for="IsFlagged" class="form-check-input" type="checkbox" />
-        <label asp-for="IsFlagged" class="form-check-label"></label>
+        <label asp-for="IsFlagged" class="form-check-label">Mark as Important</label>
     </div>
 
     <button type="submit" class="btn btn-primary">Save Changes</button>

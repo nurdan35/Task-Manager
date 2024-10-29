@@ -5,21 +5,21 @@ using TaskManagement.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Veritabanı bağlantısını ayarla
+// Set up the database connection
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString)); // SQLite veritabanı kullanılıyor
+    options.UseSqlite(connectionString)); // Using SQLite database
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-// Kimlik doğrulama ve rollerin ayarlanması
+// Configure identity and roles
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddRoles<IdentityRole>()  // Rol desteği ekleniyor
+    .AddRoles<IdentityRole>()  // Adding role support
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// ApplicationDbInitializer'ı çağır - Veritabanını başlat
+// Call ApplicationDbInitializer - Initialize the database
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -27,11 +27,11 @@ using (var scope = app.Services.CreateScope())
     var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
-    // Veritabanını başlat ve rollerle birlikte kullanıcıları ve görevleri yükle
-    ApplicationDbInitializer.Initialize(context, userManager, roleManager);
+    // Initialize the database and load users and tasks with roles
+    ApplicationDbInitializer.InitializeAsync(context, userManager, roleManager);
 }
 
-// HTTP request pipeline yapılandırması
+// Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -47,7 +47,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication();  // Kimlik doğrulama middleware etkinleştirildi
+app.UseAuthentication();  // Authentication middleware enabled
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -56,4 +56,3 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.Run();
-

@@ -4,20 +4,24 @@ namespace TaskManagement.Models
 {
     public class RegisterViewModel
     {
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Required(ErrorMessage = "Email is required.")]
+        [EmailAddress(ErrorMessage = "Invalid email format.")]
+        public string Email { get; set; } = string.Empty;
 
-        [Required]
-        public string Nickname { get; set; }
+        [Required(ErrorMessage = "Nickname is required.")]
+        [MaxLength(50, ErrorMessage = "Nickname cannot exceed 50 characters.")]
+        public string Nickname { get; set; } = string.Empty;
 
-        [Required]
+        [Required(ErrorMessage = "Password is required.")]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        [MinLength(8, ErrorMessage = "Password must be at least 8 characters long.")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", 
+            ErrorMessage = "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.")]
+        public string Password { get; set; } = string.Empty;
 
-        [Required]
+        [Required(ErrorMessage = "Please confirm your password.")]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }
+        public string ConfirmPassword { get; set; } = string.Empty;
     }
 }

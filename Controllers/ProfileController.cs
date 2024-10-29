@@ -41,5 +41,47 @@ namespace TaskManagement.Controllers
             }
             return View();
         }
+        
+        [HttpGet]
+        public async Task<IActionResult> NotificationSettings()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            // Mevcut bildirim tercihlerini döndür
+            return View(new NotificationSettingsViewModel
+            {
+                EmailNotificationsEnabled = user.Notifications.Any(n => n.IsEmailNotification),
+                SmsNotificationsEnabled = user.Notifications.Any(n => n.IsSmsNotification)
+            });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> NotificationSettings(NotificationSettingsViewModel model)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            user.Notifications.Clear(); // Önce eski bildirim tercihlerini temizle
+
+            if (model.EmailNotificationsEnabled)
+            {
+                user.Notifications.Add(new Notification { IsEmailNotification = true });
+            }
+            if (model.SmsNotificationsEnabled)
+            {
+                user.Notifications.Add(new Notification { IsSmsNotification = true });
+            }
+
+            await _userManager.UpdateAsync(user);
+            return RedirectToAction("Dashboard");
+        }
+
     }
 }

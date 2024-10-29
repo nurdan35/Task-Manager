@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using TaskManagement.Data;
 using TaskManagement.Models;
 
-
 namespace TaskManagement.Controllers
 {
     [Authorize]
@@ -20,6 +19,31 @@ namespace TaskManagement.Controllers
             _userManager = userManager;
         }
 
+        // GET: Task
+        public async Task<IActionResult> Index()
+        {
+            var userId = _userManager.GetUserId(User);
+            var tasks = await _db.TaskItems
+                .Where(t => t.UserId == userId)
+                .ToListAsync();
+
+            return View(tasks);
+        }
+
+        // GET: Task/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var taskItem = await _db.TaskItems.FindAsync(id);
+            if (taskItem == null) return NotFound();
+
+            var userId = _userManager.GetUserId(User);
+            if (taskItem.UserId != userId) return Forbid();
+
+            return View(taskItem);
+        }
+
         // GET: Task/Create
         public IActionResult Create()
         {
@@ -29,14 +53,30 @@ namespace TaskManagement.Controllers
         // POST: Task/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(TaskItem taskItem)
+        public async Task<IActionResult> Create(TaskItem taskItem, int boardId)
         {
             if (ModelState.IsValid)
             {
                 var userId = _userManager.GetUserId(User);
-                taskItem.UserId = userId;
+                if (userId == null)
+                {
+                    return Unauthorized("User must be logged in to create tasks.");
+                }
+                
+                var board = await _db.Boards
+                    .Include(b => b.Tasks)
+                    .FirstOrDefaultAsync(b => b.Id == boardId && b.UserId == userId);
+
+                if (board == null)
+                {
+                    return NotFound("Board not found or you do not have permission to add tasks to this board.");
+                }
+
+                taskItem.BoardId = board.Id;
+                taskItem.UserId = userId;   // Görevi oluşturan kullanıcıyı ayarla
                 _db.TaskItems.Add(taskItem);
                 await _db.SaveChangesAsync();
+
                 return RedirectToAction("Index", "Board");
             }
             return View(taskItem);
@@ -45,22 +85,13 @@ namespace TaskManagement.Controllers
         // GET: Task/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var taskItem = await _db.TaskItems.FindAsync(id);
-            if (taskItem == null)
-            {
-                return NotFound();
-            }
+            if (taskItem == null) return NotFound();
 
             var userId = _userManager.GetUserId(User);
-            if (taskItem.UserId != userId)
-            {
-                return Forbid(); // Prevents editing tasks not owned by the user
-            }
+            if (taskItem.UserId != userId) return Forbid();
 
             return View(taskItem);
         }
@@ -70,28 +101,24 @@ namespace TaskManagement.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, TaskItem taskItem)
         {
-            if (id != taskItem.Id)
-            {
-                return NotFound();
-            }
+            if (id != taskItem.Id) return NotFound();
 
             if (ModelState.IsValid)
             {
+                var userId = _userManager.GetUserId(User);
+                var existingTask = await _db.TaskItems.AsNoTracking().FirstOrDefaultAsync(t => t.Id == id && t.UserId == userId);
+
+                if (existingTask == null) return Forbid();
+
                 try
                 {
-                    _db.Update(taskItem);
+                    _db.TaskItems.Update(taskItem);
                     await _db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TaskItemExists(taskItem.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    if (!TaskItemExists(taskItem.Id)) return NotFound();
+                    throw;
                 }
                 return RedirectToAction("Index", "Board");
             }
@@ -101,41 +128,54 @@ namespace TaskManagement.Controllers
         // GET: Task/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var taskItem = await _db.TaskItems
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (taskItem == null)
-            {
-                return NotFound();
-            }
+            var taskItem = await _db.TaskItems.FindAsync(id);
+            if (taskItem == null) return NotFound();
 
             var userId = _userManager.GetUserId(User);
-            if (taskItem.UserId != userId)
-            {
-                return Forbid(); // Prevents deleting tasks not owned by the user
-            }
+            if (taskItem.UserId != userId) return Forbid();
 
             return View(taskItem);
         }
 
         // POST: Task/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var taskItem = await _db.TaskItems.FindAsync(id);
+            if (taskItem == null) return NotFound("Task not found.");
+
+            var userId = _userManager.GetUserId(User);
+            if (taskItem.UserId != userId) return Forbid();
+
             _db.TaskItems.Remove(taskItem);
             await _db.SaveChangesAsync();
-            return RedirectToAction("Index", "Board");
+            return RedirectToAction("Index");
         }
 
-        private bool TaskItemExists(int id)
+        private bool TaskItemExists(int id) => _db.TaskItems.Any(e => e.Id == id);
+        
+        // Update Task Status
+        [HttpPost]
+        public async Task<IActionResult> UpdateStatus(int id, string newStatus)
         {
-            return _db.TaskItems.Any(e => e.Id == id);
+            var taskItem = await _db.TaskItems.FindAsync(id);
+            if (taskItem == null)
+            {
+                return NotFound("Task not found.");
+            }
+
+            var userId = _userManager.GetUserId(User);
+            if (taskItem.UserId != userId)
+            {
+                return Forbid();
+            }
+
+            taskItem.Status = newStatus;
+            await _db.SaveChangesAsync();
+            return Ok();
         }
     }
 }

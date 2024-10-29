@@ -170,9 +170,9 @@ C:\Users\nurda\TaskManagement\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\nurda\TaskManagement\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\nurda\TaskManagement\obj\Debug\net8.0\scopedcss\bundle\TaskManagement.styles.css
 C:\Users\nurda\TaskManagement\obj\Debug\net8.0\scopedcss\projectbundle\TaskManagement.bundle.scp.css
-C:\Users\nurda\TaskManagement\obj\Debug\net8.0\TaskManagement.csproj.CopyComplete
 C:\Users\nurda\TaskManagement\obj\Debug\net8.0\TaskManagement.dll
 C:\Users\nurda\TaskManagement\obj\Debug\net8.0\refint\TaskManagement.dll
 C:\Users\nurda\TaskManagement\obj\Debug\net8.0\TaskManagement.pdb
 C:\Users\nurda\TaskManagement\obj\Debug\net8.0\TaskManagement.genruntimeconfig.cache
 C:\Users\nurda\TaskManagement\obj\Debug\net8.0\ref\TaskManagement.dll
+C:\Users\nurda\TaskManagement\obj\Debug\net8.0\TaskMana.75ABC965.Up2Date

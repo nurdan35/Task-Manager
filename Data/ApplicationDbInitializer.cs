@@ -5,24 +5,24 @@ namespace TaskManagement.Data
 {
     public static class ApplicationDbInitializer
     {
-        public static void Initialize(ApplicationDbContext db, UserManager<ApplicationUser> um,
+        public static async Task InitializeAsync(ApplicationDbContext db, UserManager<ApplicationUser> um,
             RoleManager<IdentityRole> rm)
         {
-            // Reset and recreate the database
-            db.Database.EnsureDeleted();
-            db.Database.EnsureCreated();
+            // Reset and recreate the database (Use only for development purposes)
+            await db.Database.EnsureDeletedAsync();
+            await db.Database.EnsureCreatedAsync();
 
             // Check roles, create them if they don't exist
-            if (!rm.RoleExistsAsync("Admin").Result)
+            if (!await rm.RoleExistsAsync("Admin"))
             {
                 var adminRole = new IdentityRole("Admin");
-                rm.CreateAsync(adminRole).Wait();
+                await rm.CreateAsync(adminRole);
             }
 
-            if (!rm.RoleExistsAsync("User").Result)
+            if (!await rm.RoleExistsAsync("User"))
             {
                 var userRole = new IdentityRole("User");
-                rm.CreateAsync(userRole).Wait();
+                await rm.CreateAsync(userRole);
             }
 
             // Create admin user
@@ -33,10 +33,13 @@ namespace TaskManagement.Data
                 Email = "admin@taskmanager.com",
                 EmailConfirmed = true
             };
-            if (um.FindByNameAsync(admin.UserName).Result == null)
+            if (await um.FindByNameAsync(admin.UserName) == null)
             {
-                um.CreateAsync(admin, "AdminPassword1!").Wait();
-                um.AddToRoleAsync(admin, "Admin").Wait();
+                var result = await um.CreateAsync(admin, "AdminPassword1!");
+                if (result.Succeeded)
+                {
+                    await um.AddToRoleAsync(admin, "Admin");
+                }
             }
 
             // Create normal user
@@ -47,15 +50,26 @@ namespace TaskManagement.Data
                 Email = "user@taskmanager.com",
                 EmailConfirmed = true
             };
-            if (um.FindByNameAsync(user.UserName).Result == null)
+            if (await um.FindByNameAsync(user.UserName) == null)
             {
-                um.CreateAsync(user, "UserPassword1!").Wait();
-                um.AddToRoleAsync(user, "User").Wait();
+                var result = await um.CreateAsync(user, "UserPassword1!");
+                if (result.Succeeded)
+                {
+                    await um.AddToRoleAsync(user, "User");
+                }
             }
 
             // Add sample tasks
             if (!db.TaskItems.Any())
             {
+                var adminId = (await um.FindByNameAsync(admin.UserName))?.Id;
+                var userId = (await um.FindByNameAsync(user.UserName))?.Id;
+
+                if (adminId == null || userId == null)
+                {
+                    throw new Exception("Admin or User ID could not be found.");
+                }
+
                 var task1 = new TaskItem
                 {
                     Title = "Task 1: Design Plan",
@@ -64,7 +78,7 @@ namespace TaskManagement.Data
                     DueDate = DateTime.Now.AddDays(5),
                     Tag = "Draft",
                     IsFlagged = false,
-                    UserId = user.Id // Assigned to the normal user
+                    UserId = userId // Assigned to the normal user
                 };
 
                 var task2 = new TaskItem
@@ -75,12 +89,11 @@ namespace TaskManagement.Data
                     DueDate = DateTime.Now.AddDays(7),
                     Tag = "Priority",
                     IsFlagged = true,
-                    UserId = admin.Id // Assigned to the admin user
+                    UserId = adminId // Assigned to the admin user
                 };
 
-                db.TaskItems.AddRange(task1, task2);
-                db.SaveChanges();
-
+                await db.TaskItems.AddRangeAsync(task1, task2);
+                await db.SaveChangesAsync();
             }
         }
     }

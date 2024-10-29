@@ -1,0 +1,19 @@
+@model TaskManagement.Models.Board
+
+@{
+    ViewData["Title"] = "Board Details";
+}
+
+<h2>Board Details</h2>
+
+<p><strong>Title:</strong> @Model.Title</p>
+<p><strong>Tasks:</strong></p>
+
+<ul>
+    @foreach (var task in Model.Tasks)
+    {
+        <li>@task.Title - Status: @task.Status</li>
+    }
+</ul>
+
+<a asp-action="Index" class="btn btn-secondary">Back to Boards</a>

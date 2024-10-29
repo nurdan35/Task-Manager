@@ -1,15 +1,15 @@
 @model TaskManagement.Models.ApplicationUser
 
 @{
-    ViewData["Title"] = "Dashboard";
+ViewData["Title"] = "Dashboard";
 }
 
 <h2>Welcome, @Model.Nickname!</h2>
 
 <div class="profile-section">
     <h3>Your Profile:</h3>
-    <p>Email: @Model.Email</p>
-    <p>Theme: @Model.Theme</p>
+    <p><strong>Email:</strong> @Model.Email</p>
+    <p><strong>Theme:</strong> @Model.Theme</p>
 
     <a class="btn btn-secondary" asp-action="EditProfile">Edit Profile</a>
 </div>
@@ -18,5 +18,14 @@
 
 <div class="task-section">
     <h3>Your Task Board</h3>
+    <p>Manage and track your tasks.</p>
     <a class="btn btn-primary" asp-action="Index" asp-controller="Board">Go to Task Board</a>
+</div>
+
+<hr />
+
+<div class="notification-section">
+    <h3>Your Notification Settings</h3>
+    <p>Manage your notification preferences for tasks.</p>
+    <a class="btn btn-info" asp-action="NotificationSettings" asp-controller="Profile">Edit Notification Settings</a>
 </div>
