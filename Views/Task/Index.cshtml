@@ -3,9 +3,17 @@
 
 
 <h2>Tasks</h2>
+
+<a asp-action="Create" class="btn btn-success mb-3">Create New Task</a>
 <ul>
-    @foreach (var task in Model)
+    @if (Model == null || !Model.Any())
     {
+        <p>No tasks available for this user.</p>
+    }
+    else 
+    {
+        @foreach (var task in Model)
+        {
         <li>
             <strong>@task.Title:</strong> @task.Description <br />
             Status: <span class="badge badge-@GetStatusClass(task.Status)">@task.Status</span> | 
@@ -13,6 +21,7 @@
             <a asp-action="Edit" asp-route-id="@task.Id" class="btn btn-sm btn-primary">Edit</a> |
             <a asp-action="Delete" asp-route-id="@task.Id" class="btn btn-sm btn-danger">Delete</a>
         </li>
+        }
     }
 </ul>
 

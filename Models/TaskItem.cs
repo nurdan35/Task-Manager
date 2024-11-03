@@ -40,7 +40,7 @@ namespace TaskManagement.Models
         [MaxLength(20)]  // Öncelik seviyeleri için (örneğin: düşük, orta, yüksek)
         public string Priority { get; set; } = "Normal";  // Task priority level
 
-        public int BoardId { get; set; }
+        public int? BoardId { get; set; }  // Temporarily nullable (?)
         
         [ForeignKey("BoardId")]  ////////////////// Yeni eklendi!
         public Board? Board { get; set; } // Görevin bağlı olduğu board
