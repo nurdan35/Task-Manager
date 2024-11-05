@@ -103,6 +103,7 @@ namespace TaskManagement.Controllers
 
                 try
                 {
+                    taskItem.UserId = userId;
                     _db.TaskItems.Update(taskItem);
                     await _db.SaveChangesAsync();
                 }
@@ -111,7 +112,7 @@ namespace TaskManagement.Controllers
                     if (!TaskItemExists(taskItem.Id)) return NotFound();
                     throw;
                 }
-                return RedirectToAction("Index", "Board");
+                return RedirectToAction("Index");
             }
             return View(taskItem);
         }
