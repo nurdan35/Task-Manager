@@ -21,6 +21,30 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\gunil\\ikt201g24h\\Task-Manager\\wwwroot\\images\\default-profile.jpg",
+      "PackagePath": "staticwebassets\\images\\default-profile.jpg"
+    },
+    {
+      "Id": "C:\\Users\\gunil\\ikt201g24h\\Task-Manager\\wwwroot\\images\\profiles\\2882ca54-e57a-457b-9f6a-d519a1b4737e_Profile_Image_Test.png",
+      "PackagePath": "staticwebassets\\images\\profiles\\2882ca54-e57a-457b-9f6a-d519a1b4737e_Profile_Image_Test.png"
+    },
+    {
+      "Id": "C:\\Users\\gunil\\ikt201g24h\\Task-Manager\\wwwroot\\images\\profiles\\53a53bcb-7b20-486f-b215-b95931a1e952_Profile_Image_Test.png",
+      "PackagePath": "staticwebassets\\images\\profiles\\53a53bcb-7b20-486f-b215-b95931a1e952_Profile_Image_Test.png"
+    },
+    {
+      "Id": "C:\\Users\\gunil\\ikt201g24h\\Task-Manager\\wwwroot\\images\\profiles\\551e3978-aad6-4c35-aec2-397d4e5731f2_Profile_Image_Test.png",
+      "PackagePath": "staticwebassets\\images\\profiles\\551e3978-aad6-4c35-aec2-397d4e5731f2_Profile_Image_Test.png"
+    },
+    {
+      "Id": "C:\\Users\\gunil\\ikt201g24h\\Task-Manager\\wwwroot\\images\\profiles\\87c99965-faff-4a11-836e-349cdc28922b_Profile_Image_Test.png",
+      "PackagePath": "staticwebassets\\images\\profiles\\87c99965-faff-4a11-836e-349cdc28922b_Profile_Image_Test.png"
+    },
+    {
+      "Id": "C:\\Users\\gunil\\ikt201g24h\\Task-Manager\\wwwroot\\images\\profiles\\b1b68b68-05f1-4042-9a4e-dfb4ab5dba42_chatgpt_illustrasjon_001.webp",
+      "PackagePath": "staticwebassets\\images\\profiles\\b1b68b68-05f1-4042-9a4e-dfb4ab5dba42_chatgpt_illustrasjon_001.webp"
+    },
+    {
       "Id": "C:\\Users\\gunil\\ikt201g24h\\Task-Manager\\wwwroot\\js\\board.js",
       "PackagePath": "staticwebassets\\js\\board.js"
     },

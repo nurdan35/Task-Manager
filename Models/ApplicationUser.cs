@@ -7,13 +7,15 @@ namespace TaskManagement.Models
     public class ApplicationUser : IdentityUser
     {
         [MaxLength(50)]
-        public string Nickname { get; set; } = string.Empty;
+        public string? Nickname { get; set; } = string.Empty;  // Nickname can be empty (when editing profile)
         
         [MaxLength(255)]
         public string? ProfileImage { get; set; } // GNOS-13: Profil resmi
         
         [MaxLength(20)]
         public string Theme { get; set; } = "light"; // Default theme is 'light' // GNOS-14: Tema değiştirme
+        
+        public string? ProfilePicturePath { get; set; } // Path to profile picture
         
         
         public ICollection<Board> Boards { get; set; } = new List<Board>();

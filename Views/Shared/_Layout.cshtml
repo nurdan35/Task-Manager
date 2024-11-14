@@ -19,6 +19,12 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                
+                @inject UserManager<TaskManagement.Models.ApplicationUser> UserManager
+                @{
+                var user = await UserManager.GetUserAsync(User);
+                }
+                
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
@@ -40,7 +46,15 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Notification" asp-action="Index">Notifications</a>
                         </li>
                     </ul>
-                    <partial name="_LoginPartial" />
+
+                    <div class="d-flex align-items-center">
+                        <partial name="_LoginPartial" />
+                        @if (user != null && !string.IsNullOrEmpty(user.ProfilePicturePath))
+                        {
+                            <img src="@user.ProfilePicturePath" alt="Profile Picture" style="width: 40px; height: 40px; border-radius: 50%;" />
+                        }
+                    </div>
+                    
                 </div>
             </div>
         </nav>
