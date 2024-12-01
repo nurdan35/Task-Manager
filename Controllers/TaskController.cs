@@ -26,7 +26,7 @@ namespace TaskManagement.Controllers
             var tasks = await _db.TaskItems
                 .Where(t => t.UserId == userId)
                 .ToListAsync();
-
+            
             return View(tasks);
         }
 
@@ -53,7 +53,7 @@ namespace TaskManagement.Controllers
         // POST: Task/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(TaskItem taskItem, int boardId)
+        public async Task<IActionResult> Create(TaskItem taskItem)
         {
             if (ModelState.IsValid)
             {
@@ -63,21 +63,12 @@ namespace TaskManagement.Controllers
                     return Unauthorized("User must be logged in to create tasks.");
                 }
                 
-                var board = await _db.Boards
-                    .Include(b => b.Tasks)
-                    .FirstOrDefaultAsync(b => b.Id == boardId && b.UserId == userId);
-
-                if (board == null)
-                {
-                    return NotFound("Board not found or you do not have permission to add tasks to this board.");
-                }
-
-                taskItem.BoardId = board.Id;
+     
                 taskItem.UserId = userId;   // Görevi oluşturan kullanıcıyı ayarla
                 _db.TaskItems.Add(taskItem);
                 await _db.SaveChangesAsync();
 
-                return RedirectToAction("Index", "Board");
+                return RedirectToAction("Index");
             }
             return View(taskItem);
         }
@@ -112,6 +103,7 @@ namespace TaskManagement.Controllers
 
                 try
                 {
+                    taskItem.UserId = userId;
                     _db.TaskItems.Update(taskItem);
                     await _db.SaveChangesAsync();
                 }
@@ -120,7 +112,7 @@ namespace TaskManagement.Controllers
                     if (!TaskItemExists(taskItem.Id)) return NotFound();
                     throw;
                 }
-                return RedirectToAction("Index", "Board");
+                return RedirectToAction("Index");
             }
             return View(taskItem);
         }

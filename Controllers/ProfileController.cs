@@ -29,13 +29,29 @@ namespace TaskManagement.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditProfile(string nickname, string theme)
+        public async Task<IActionResult> EditProfile(string nickname, string theme, IFormFile profileImage)
         {
             var user = await _userManager.GetUserAsync(User);
             if (user != null)
             {
                 user.Nickname = nickname;
                 user.Theme = theme;
+                
+                if (profileImage != null && profileImage.Length > 0)
+                {
+                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "profiles");
+                    Directory.CreateDirectory(uploadsFolder);
+                    
+                    var uniqueFileName = Guid.NewGuid().ToString() + "_" + profileImage.FileName;
+                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await profileImage.CopyToAsync(fileStream);
+                    }
+                    user.ProfilePicturePath = "/images/profiles/" + uniqueFileName;
+                }
+                
                 await _userManager.UpdateAsync(user);
                 return RedirectToAction("Dashboard");
             }
