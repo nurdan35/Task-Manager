@@ -27,3 +27,8 @@
 h2 {
     text-align: center;
 }
+
+/* Endrer fargen på status "to do" etc. når vist i task view */
+.badge {
+    color: #000000;
+}

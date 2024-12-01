@@ -15,12 +15,12 @@ namespace TaskManagement.Models
         [MaxLength(20)]
         public string Theme { get; set; } = "light"; // Default theme is 'light' // GNOS-14: Tema değiştirme
         
+        public string? ProfilePicturePath { get; set; } // Path to profile picture
         
+        // Relationships
         public ICollection<Board> Boards { get; set; } = new List<Board>();
         public ICollection<TaskItem> TaskItems { get; set; } = new List<TaskItem>();
         public ICollection<Notification> Notifications { get; set; } = new List<Notification>();
-        
-        // Board ile iki yönlü ilişki için
         public ICollection<Board> CollaboratingBoards { get; set; } = new List<Board>();
     }
 }

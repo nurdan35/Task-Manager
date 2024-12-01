@@ -176,3 +176,11 @@ C:\Users\nurda\TaskManagement\obj\Debug\net8.0\TaskManagement.pdb
 C:\Users\nurda\TaskManagement\obj\Debug\net8.0\TaskManagement.genruntimeconfig.cache
 C:\Users\nurda\TaskManagement\obj\Debug\net8.0\ref\TaskManagement.dll
 C:\Users\nurda\TaskManagement\obj\Debug\net8.0\TaskMana.75ABC965.Up2Date
+C:\Users\nurda\TaskManagement\bin\Debug\net8.0\AdvancedStringBuilder.dll
+C:\Users\nurda\TaskManagement\bin\Debug\net8.0\JavaScriptEngineSwitcher.Core.dll
+C:\Users\nurda\TaskManagement\bin\Debug\net8.0\JSPool.dll
+C:\Users\nurda\TaskManagement\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\nurda\TaskManagement\bin\Debug\net8.0\React.AspNet.dll
+C:\Users\nurda\TaskManagement\bin\Debug\net8.0\React.AspNet.Middleware.dll
+C:\Users\nurda\TaskManagement\bin\Debug\net8.0\React.Core.dll
+C:\Users\nurda\TaskManagement\bin\Debug\net8.0\ru-RU\JavaScriptEngineSwitcher.Core.resources.dll
