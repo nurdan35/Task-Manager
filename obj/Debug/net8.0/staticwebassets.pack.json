@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\images\\default-profile.jpg"
     },
     {
+      "Id": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\images\\profiles\\a52b58e9-c995-4a05-99c4-7b5280f6efbe_Skjermbilde 2024-04-16 122756.png",
+      "PackagePath": "staticwebassets\\images\\profiles\\a52b58e9-c995-4a05-99c4-7b5280f6efbe_Skjermbilde 2024-04-16 122756.png"
+    },
+    {
       "Id": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\js\\board.js",
       "PackagePath": "staticwebassets\\js\\board.js"
     },

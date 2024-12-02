@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "I0H7Tz6osGk5x46ik6xDrqPtngPZjPeFtVPOi47Qqqs=",
+  "Hash": "ckgMrxNTGW6EpGAGhInATRPxf17hLm9LDGncUfb1Q78=",
   "Source": "TaskManagement",
   "BasePath": "_content/TaskManagement",
   "Mode": "Default",
@@ -1307,6 +1307,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\default-profile.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\images\\profiles\\a52b58e9-c995-4a05-99c4-7b5280f6efbe_Skjermbilde 2024-04-16 122756.png",
+      "SourceId": "TaskManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\",
+      "BasePath": "_content/TaskManagement",
+      "RelativePath": "images/profiles/a52b58e9-c995-4a05-99c4-7b5280f6efbe_Skjermbilde 2024-04-16 122756.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\profiles\\a52b58e9-c995-4a05-99c4-7b5280f6efbe_Skjermbilde 2024-04-16 122756.png"
     },
     {
       "Identity": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\js\\board.js",
