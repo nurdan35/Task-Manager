@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TaskManagement.Data;
 using TaskManagement.Models;
+using React.AspNet;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,9 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+// Add React.NET
+builder.Services.AddReact();
+
 var app = builder.Build();
 
 // Call ApplicationDbInitializer - Initialize the database
@@ -28,7 +32,7 @@ using (var scope = app.Services.CreateScope())
     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
     // Initialize the database and load users and tasks with roles
-    ApplicationDbInitializer.InitializeAsync(context, userManager, roleManager);
+     await ApplicationDbInitializer.InitializeAsync(context, userManager, roleManager);
 }
 
 // Configure the HTTP request pipeline
@@ -45,6 +49,10 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+// Enable React.NET
+app.UseReact(config => { /* Optional: Configure React here */ });
+
+
 app.UseRouting();
 
 app.UseAuthentication();  // Authentication middleware enabled
@@ -55,4 +63,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-app.Run();
+await app.RunAsync();

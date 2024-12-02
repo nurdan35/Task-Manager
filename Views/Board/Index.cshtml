@@ -1,67 +1,40 @@
 @model TaskManagement.Models.BoardViewModel
 
 @{
-ViewData["Title"] = "Task Board";
+    ViewData["Title"] = "Boards";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h2 class="text-center">@ViewData["Title"]</h2>
 
-<div class="board">
-    <!-- To Do Column -->
-    <div class="column" id="todo-column">
-        <h2>To Do</h2>
-        <ul id="todo-tasks">
-            @foreach (var task in Model.Tasks.Where(t => t.Status == "todo"))
-            {
-            <li class="task" data-task-id="@task.Id">
-                <span>@task.Title</span>
-                <div class="task-actions">
-                    <!-- Task Edit Link -->
-                    <a asp-action="Edit" asp-controller="Task" asp-route-id="@task.Id" class="btn btn-sm btn-primary">Edit</a>
+<!-- Create New Board Button -->
+<a asp-action="Create" asp-controller="Board" class="btn btn-primary mb-3">Create New Board</a>
 
-                    <!-- Complete Task Link (Only for "To Do" and "In Progress") -->
-                    <a asp-action="UpdateStatus" asp-controller="Task" asp-route-id="@task.Id" asp-route-newStatus="doing" class="btn btn-sm btn-success">Start</a>
-                    <a asp-action="UpdateStatus" asp-controller="Task" asp-route-id="@task.Id" asp-route-newStatus="done" class="btn btn-sm btn-success">Complete</a>
-                </div>
-            </li>
-            }
-        </ul>
-    </div>
-
-    <!-- In Progress Column -->
-    <div class="column" id="doing-column">
-        <h2>In Progress</h2>
-        <ul id="doing-tasks">
-            @foreach (var task in Model.Tasks.Where(t => t.Status == "doing"))
-            {
-            <li class="task" data-task-id="@task.Id">
-                <span>@task.Title</span>
-                <div class="task-actions">
-                    <!-- Task Edit Link -->
-                    <a asp-action="Edit" asp-controller="Task" asp-route-id="@task.Id" class="btn btn-sm btn-primary">Edit</a>
-
-                    <!-- Complete Task Link (Only for "In Progress") -->
-                    <a asp-action="UpdateStatus" asp-controller="Task" asp-route-id="@task.Id" asp-route-newStatus="done" class="btn btn-sm btn-success">Complete</a>
-                </div>
-            </li>
-            }
-        </ul>
-    </div>
-
-    <!-- Completed Column -->
-    <div class="column" id="done-column">
-        <h2>Completed</h2>
-        <ul id="done-tasks">
-            @foreach (var task in Model.Tasks.Where(t => t.Status == "done"))
-            {
-            <li class="task" data-task-id="@task.Id">
-                <span>@task.Title</span>
-                <div class="task-actions">
-                    <!-- Task Edit Link (Editing a completed task) -->
-                    <a asp-action="Edit" asp-controller="Task" asp-route-id="@task.Id" class="btn btn-sm btn-primary">Edit</a>
-                </div>
-            </li>
-            }
-        </ul>
+<div class="clearfix">
+    <div class="sidebar">
+        <h2>Your Boards</h2>
+        @if (Model.Boards == null || !Model.Boards.Any())
+        {
+            <p>No boards available for this user.</p>
+        }
+        else
+        {
+            <ul>
+                @foreach (var board in Model.Boards)
+                {
+                    <li>
+                        <strong>@board.Title</strong>
+                        <div class="board-actions">
+                            <a asp-action="Details" asp-route-id="@board.Id" class="btn btn-sm btn-info">View</a>
+                            <a asp-action="Edit" asp-route-id="@board.Id" class="btn btn-sm btn-primary">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@board.Id" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                    </li>
+                }
+            </ul>
+        }
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/board.js"></script>
+}

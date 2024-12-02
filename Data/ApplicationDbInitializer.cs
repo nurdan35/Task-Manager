@@ -77,7 +77,6 @@ namespace TaskManagement.Data
                     Status = "todo",
                     DueDate = DateTime.Now.AddDays(5),
                     Tag = "Draft",
-                    IsFlagged = false,
                     UserId = userId // Assigned to the normal user
                 };
 

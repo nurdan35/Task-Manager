@@ -8,10 +8,10 @@ ViewData["Title"] = "Register";
 
 <form asp-action="Register" method="post">
     @Html.AntiForgeryToken()
-
     <div class="form-group">
         <label asp-for="Nickname"></label>
         <input asp-for="Nickname" class="form-control" required />
+        <small class="form-text text-muted">Choose a unique nickname to be recognized by others.</small>
         <span asp-validation-for="Nickname" class="text-danger"></span>
     </div>
 
@@ -39,3 +39,7 @@ ViewData["Title"] = "Register";
 <div>
     Already have an account? <a asp-action="Login">Login here</a>.
 </div>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

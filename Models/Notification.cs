@@ -14,4 +14,3 @@ namespace TaskManagement.Models
         public bool IsSmsNotification { get; set; } // For SMS notifications
     }
 }
-

@@ -1,7 +1,5 @@
 @model List<TaskManagement.Models.TaskItem>
 
-
-
 <h2>Tasks</h2>
 
 <a asp-action="Create" class="btn btn-success mb-3">Create New Task</a>
@@ -10,23 +8,23 @@
     {
         <p>No tasks available for this user.</p>
     }
-    else 
+    else
     {
         @foreach (var task in Model)
         {
-        <li>
-            <strong>@task.Title:</strong> @task.Description <br />
-            Status: <span class="badge badge-@GetStatusClass(task.Status)">@task.Status</span> | 
-            Due Date: @task.DueDate.ToString("yyyy-MM-dd") <br />
-            <a asp-action="Edit" asp-route-id="@task.Id" class="btn btn-sm btn-primary">Edit</a> |
-            <a asp-action="Delete" asp-route-id="@task.Id" class="btn btn-sm btn-danger">Delete</a>
-        </li>
+            <li>
+                <strong>@task.Title:</strong> @task.Description <br/>
+                Status: <span class="badge badge-@GetStatusClass(task.Status)">@task.Status</span> |
+                Due Date: @task.DueDate.ToString("yyyy-MM-dd") <br/>
+                <a asp-action="Edit" asp-route-id="@task.Id" class="btn btn-sm btn-primary">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@task.Id" class="btn btn-sm btn-danger">Delete</a>
+            </li>
         }
     }
 </ul>
 
 @functions {
-    private string GetStatusClass(string status) 
+    private string GetStatusClass(string status)
     {
         return status switch
         {

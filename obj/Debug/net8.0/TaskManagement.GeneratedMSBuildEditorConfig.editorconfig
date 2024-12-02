@@ -16,136 +16,136 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TaskManagement
 build_property.RootNamespace = TaskManagement
-build_property.ProjectDir = C:\Users\gunil\ikt201g24h\Task-Manager\
+build_property.ProjectDir = C:\Users\nurda\TaskManagement\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\gunil\ikt201g24h\Task-Manager
+build_property.MSBuildProjectDirectory = C:\Users\nurda\TaskManagement
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/nurda/TaskManagement/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Account/Login.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Account/Register.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Board/Create.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Board/Create.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Board/Delete.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Board/Delete.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Board/Details.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Board/Details.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Board/Edit.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Board/Edit.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Board/Index.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Board/Index.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Home/Index.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Home/Privacy.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Notification/Index.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Notification/Index.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpY2F0aW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Profile/Dashboard.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Profile/Dashboard.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Profile/EditProfile.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Profile/EditProfile.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxFZGl0UHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Profile/NotificationSettings.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Profile/NotificationSettings.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxOb3RpZmljYXRpb25TZXR0aW5ncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Shared/Error.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Task/Create.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Task/Create.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Task/Delete.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Task/Delete.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Task/Details.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Task/Details.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Task/Edit.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Task/Edit.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Task/Index.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Task/Index.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/_ViewImports.cshtml]
+[C:/Users/nurda/TaskManagement/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/_ViewStart.cshtml]
+[C:/Users/nurda/TaskManagement/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gunil/ikt201g24h/Task-Manager/Views/Shared/_Layout.cshtml]
+[C:/Users/nurda/TaskManagement/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.SourceItemGroup = 
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-7opx5vu9t6

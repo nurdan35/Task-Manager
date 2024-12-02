@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,11 +13,14 @@ namespace TaskManagement.Controllers
     {
         private readonly ApplicationDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IAntiforgery _antiforgery;
 
-        public TaskController(ApplicationDbContext db, UserManager<ApplicationUser> userManager)
+        public TaskController(ApplicationDbContext db, UserManager<ApplicationUser> userManager,
+            IAntiforgery antiforgery)
         {
             _db = db;
             _userManager = userManager;
+            _antiforgery = antiforgery;
         }
 
         // GET: Task
@@ -26,7 +30,9 @@ namespace TaskManagement.Controllers
             var tasks = await _db.TaskItems
                 .Where(t => t.UserId == userId)
                 .ToListAsync();
-            
+            var tokens = _antiforgery.GetAndStoreTokens(HttpContext);
+            ViewData["RequestVerificationToken"] = tokens.RequestToken;
+
             return View(tasks);
         }
 
@@ -45,15 +51,16 @@ namespace TaskManagement.Controllers
         }
 
         // GET: Task/Create
-        public IActionResult Create()
+        public IActionResult Create(int boardId)
         {
+            ViewBag.BoardId = boardId;
             return View();
         }
 
         // POST: Task/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(TaskItem taskItem)
+        public async Task<IActionResult> Create(TaskItem taskItem, int boardId)
         {
             if (ModelState.IsValid)
             {
@@ -62,14 +69,25 @@ namespace TaskManagement.Controllers
                 {
                     return Unauthorized("User must be logged in to create tasks.");
                 }
-                
-     
-                taskItem.UserId = userId;   // Görevi oluşturan kullanıcıyı ayarla
+
+                var board = await _db.Boards
+                    .Include(b => b.Tasks)
+                    .FirstOrDefaultAsync(b => b.Id == boardId && b.UserId == userId);
+
+                if (board == null)
+                {
+                    return NotFound("Board not found or you do not have permission to add tasks to this board.");
+                }
+
+                taskItem.BoardId = board.Id;
+                taskItem.UserId = userId; // Görevi oluşturan kullanıcıyı ayarla
                 _db.TaskItems.Add(taskItem);
                 await _db.SaveChangesAsync();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Board", new { id = boardId });
             }
+
+            ViewBag.BoardId = boardId;
             return View(taskItem);
         }
 
@@ -97,13 +115,15 @@ namespace TaskManagement.Controllers
             if (ModelState.IsValid)
             {
                 var userId = _userManager.GetUserId(User);
-                var existingTask = await _db.TaskItems.AsNoTracking().FirstOrDefaultAsync(t => t.Id == id && t.UserId == userId);
+                var existingTask = await _db.TaskItems.AsNoTracking()
+                    .FirstOrDefaultAsync(t => t.Id == id && t.UserId == userId);
 
                 if (existingTask == null) return Forbid();
 
                 try
                 {
-                    taskItem.UserId = userId;
+                    taskItem.UserId = userId!; // Kullanıcıyı ayarla
+                    taskItem.BoardId = existingTask.BoardId; // BoardId'yi koru
                     _db.TaskItems.Update(taskItem);
                     await _db.SaveChangesAsync();
                 }
@@ -112,8 +132,10 @@ namespace TaskManagement.Controllers
                     if (!TaskItemExists(taskItem.Id)) return NotFound();
                     throw;
                 }
-                return RedirectToAction("Index");
+
+                return RedirectToAction("Details", "Board", new { id = taskItem.BoardId });
             }
+
             return View(taskItem);
         }
 
@@ -148,7 +170,7 @@ namespace TaskManagement.Controllers
         }
 
         private bool TaskItemExists(int id) => _db.TaskItems.Any(e => e.Id == id);
-        
+
         // Update Task Status
         [HttpPost]
         public async Task<IActionResult> UpdateStatus(int id, string newStatus)
@@ -164,8 +186,16 @@ namespace TaskManagement.Controllers
             {
                 return Forbid();
             }
+            
+            // Check if the new status is a valid value
+            var validStatuses = new List<string> { "todo", "doing", "done" };
+            if (!validStatuses.Contains(newStatus))
+            {
+                return BadRequest("Invalid status value.");
+            }
 
             taskItem.Status = newStatus;
+            _db.TaskItems.Update(taskItem);
             await _db.SaveChangesAsync();
             return Ok();
         }

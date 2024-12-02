@@ -39,8 +39,7 @@ namespace TaskManagement.Controllers
 
             return View(viewModel);
         }
-
-        // Board Detayları
+        
         public async Task<IActionResult> Details(int id)
         {
             var userId = _userManager.GetUserId(User);
@@ -117,7 +116,7 @@ namespace TaskManagement.Controllers
                 {
                     return Forbid("You do not have permission to edit this board.");
                 }
-
+                board.UserId = userId!;
                 _db.Boards.Update(board);
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

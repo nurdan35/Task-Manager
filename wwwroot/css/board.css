@@ -1,0 +1,49 @@
+/* board.css */
+.task {
+    cursor: move; /* Draggable cursor */
+    transition: background-color 0.3s ease, border 0.3s ease; /* Transition animation for smooth hover effects */
+}
+
+/* Add hover effect to enhance user experience */
+.task:hover {
+    border: 1px solid #007bff; /* Change border color on hover */
+    background-color: #e6f7ff; /* Change background color on hover */
+}
+
+.column {
+    background-color: #d3d3d3; /* Darken the background color */
+    margin-right: 20px; /* Adjust spacing between columns */
+    padding: 15px; /* Add internal spacing for columns */
+    border-radius: 5px; /* Round the corners of columns */
+    min-height: 500px; /* Set minimum height for columns */
+    transition: background-color 0.3s ease; /* Add transition effect for background color */
+}
+
+.column ul {
+    list-style-type: none; /* Remove list bullets */
+    padding: 0; /* Remove default padding */
+    min-height: 100px; /* Specify height for empty columns */
+}
+
+.column ul li {
+    margin: 10px 0; /* Add space between task elements */
+    padding: 10px; /* Set padding for task elements */
+    border: 1px solid #ccc; /* Set border for task elements */
+    background-color: #f9f9f9; /* Set background color for task elements */
+    border-radius: 5px; /* Round the corners of task elements */
+    transition: transform 0.2s; /* Add scale effect when dragging */
+}
+
+/* Highlight droppable area for task dropping */
+.column ul.highlight {
+    border: 2px dashed #007bff; /* Highlight border for droppable area */
+    background-color: #f0f8ff; /* Light blue background for the droppable area */
+}
+
+/* Increase visibility for empty columns */
+.column ul.placeholder {
+    min-height: 50px; /* Set height for the empty drop area */
+    text-align: center;
+    color: gray;
+    border: 2px dashed lightgray;
+}

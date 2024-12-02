@@ -1,19 +1,92 @@
 @model TaskManagement.Models.Board
 
 @{
-    ViewData["Title"] = "Board Details";
+ViewData["Title"] = Model.Title;
 }
 
-<h2>Board Details</h2>
+<h2>@Model.Title</h2>
 
-<p><strong>Title:</strong> @Model.Title</p>
-<p><strong>Tasks:</strong></p>
+<a asp-action="Create" asp-controller="Task" asp-route-boardId="@Model.Id" class="btn btn-success mb-3">Create New Task</a>
 
-<ul>
-    @foreach (var task in Model.Tasks)
-    {
-        <li>@task.Title - Status: @task.Status</li>
-    }
-</ul>
+<div class="board">
+    <!-- To Do Column -->
+    <div class="column" id="todo">
+        <h3>To Do</h3>
+        <ul id="todo-tasks">
+            @if (!Model.Tasks.Any(t => t.Status == "todo"))
+            {
+            <li class="placeholder">Drop tasks here...</li>
+            }
+            @foreach (var task in Model.Tasks.Where(t => t.Status == "todo"))
+            {
+            <li class="task" data-task-id="@task.Id">
+                <span>@task.Title</span>
+                <div class="task-actions">
+                    <!-- Task Edit Link -->
+                    <a asp-action="Edit" asp-controller="Task" asp-route-id="@task.Id" class="btn btn-sm btn-primary">Edit</a>
+
+                    <!-- Start and Complete Task Forms -->
+                    <form asp-action="UpdateStatus" asp-controller="Task" method="post" class="d-inline">
+                        <input type="hidden" name="id" value="@task.Id"/>
+                        <input type="hidden" name="newStatus" value="doing"/>
+                        <button type="submit" class="btn btn-sm btn-success">Start</button>
+                    </form>
+                    <form asp-action="UpdateStatus" asp-controller="Task" method="post" class="d-inline">
+                        <input type="hidden" name="id" value="@task.Id"/>
+                        <input type="hidden" name="newStatus" value="done"/>
+                        <button type="submit" class="btn btn-sm btn-success">Complete</button>
+                    </form>
+                </div>
+            </li>
+            }
+        </ul>
+    </div>
+
+    <!-- In Progress Column -->
+    <div class="column" id="doing">
+        <h3>In Progress</h3>
+        <ul id="doing-tasks">
+            @foreach (var task in Model.Tasks.Where(t => t.Status == "doing"))
+            {
+            <li class="task" data-task-id="@task.Id">
+                <span>@task.Title</span>
+                <div class="task-actions">
+                    <!-- Task Edit Link -->
+                    <a asp-action="Edit" asp-controller="Task" asp-route-id="@task.Id" class="btn btn-sm btn-primary">Edit</a>
+
+                    <!-- Complete Task Form -->
+                    <form asp-action="UpdateStatus" asp-controller="Task" method="post" class="d-inline">
+                        <input type="hidden" name="id" value="@task.Id"/>
+                        <input type="hidden" name="newStatus" value="done"/>
+                        <button type="submit" class="btn btn-sm btn-success">Complete</button>
+                    </form>
+                </div>
+            </li>
+            }
+        </ul>
+    </div>
+
+    <!-- Completed Column -->
+    <div class="column" id="done">
+        <h3>Done</h3>
+        <ul id="done-tasks">
+            @foreach (var task in Model.Tasks.Where(t => t.Status == "done"))
+            {
+            <li class="task" data-task-id="@task.Id">
+                <span>@task.Title</span>
+                <div class="task-actions">
+                    <!-- Task Edit Link -->
+                    <a asp-action="Edit" asp-controller="Task" asp-route-id="@task.Id" class="btn btn-sm btn-primary">Edit</a>
+                </div>
+            </li>
+            }
+        </ul>
+    </div>
+</div>
 
 <a asp-action="Index" class="btn btn-secondary">Back to Boards</a>
+
+@section Scripts {
+<script src="~/js/board.js"></script>
+<link rel="stylesheet" href="~/css/board.css"/>
+}
