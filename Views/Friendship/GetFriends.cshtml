@@ -1,0 +1,29 @@
+@model IEnumerable<TaskManagement.ViewModels.FriendViewModel>
+
+<h1>Your Friends</h1>
+
+@if (Model == null || !Model.Any())
+{
+    <p>You have no friends yet.</p>
+}
+else
+{
+    <ul>
+        @foreach (var friend in Model)
+        {
+            <li>
+                <strong>@friend.DisplayName</strong>
+                <form method="post" asp-controller="Friendship" asp-action="RemoveFriend" style="display: inline;">
+                    <input type="hidden" name="friendId" value="@friend.Id" />
+                    <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                </form>
+            </li>
+        }
+    </ul>
+}
+<h2>Send Friend Request</h2>
+<form method="post" asp-controller="Friendship" asp-action="SendRequest">
+    <input type="text" name="receiverId" placeholder="Enter user ID or email" class="form-control" />
+    <button type="submit" class="btn btn-primary mt-2">Send Request</button>
+</form>
+

@@ -5135,26 +5135,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nurda\\.nuget\\packages\\": {}
+    "/Users/omer/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nurda\\TaskManagement\\TaskManagement.csproj",
+      "projectUniqueName": "/Users/omer/Task-Manager/TaskManagement.csproj",
       "projectName": "TaskManagement",
-      "projectPath": "C:\\Users\\nurda\\TaskManagement\\TaskManagement.csproj",
-      "packagesPath": "C:\\Users\\nurda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nurda\\TaskManagement\\obj\\",
+      "projectPath": "/Users/omer/Task-Manager/TaskManagement.csproj",
+      "packagesPath": "/Users/omer/.nuget/packages/",
+      "outputPath": "/Users/omer/Task-Manager/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\nurda\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/omer/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5167,11 +5165,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -5226,7 +5219,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
