@@ -212,5 +212,27 @@ namespace TaskManagement.Controllers
 
             return View(sharedBoards);
         }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteSharedBoard(int boardId)
+        {
+            var userId = _userManager.GetUserId(User);
+
+            // Paylaşılan board'u kontrol edin
+            var boardShare = await _db.BoardShares
+                .FirstOrDefaultAsync(bs => bs.BoardId == boardId && bs.SharedWithUserId == userId);
+
+            if (boardShare == null)
+            {
+                return NotFound("Shared board not found or you do not have permission to delete it.");
+            }
+
+            // Paylaşımı sil
+            _db.BoardShares.Remove(boardShare);
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction("SharedBoards");
+        }
     }
 }

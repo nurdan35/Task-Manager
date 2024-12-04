@@ -8,44 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bb80574-50cd-4eab-8dd8-f933625cfbc8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Models/BoardShare.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/Board/SharedBoards.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/dataSources/693b0787-bbd8-466c-bc10-3bc669780798.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/dataSources/693b0787-bbd8-466c-bc10-3bc669780798/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_12_2024__14_38__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_12_2024__14_39__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_12_2024__15_03__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_12_2024__15_06__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_12_2024__15_11__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/shelf/Uncommitted_changes_before_Update_at_01_12_2024__22_48__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/BoardController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/BoardController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ApplicationUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Board.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Board.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Friendship.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Friendship.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/FriendRequestViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/FriendRequestViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/FriendViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/FriendViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Board/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Board/Details.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/app.db-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/app.db-wal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/TaskManagement.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/TaskManagement.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/TaskManagement.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/TaskManagement.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/app.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/ref/TaskManagement.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/ref/TaskManagement.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/refint/TaskManagement.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/refint/TaskManagement.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
-    </list>
+    <list default="true" id="2bb80574-50cd-4eab-8dd8-f933625cfbc8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -152,7 +115,7 @@
       <workItem from="1731055263984" duration="651000" />
       <workItem from="1731587641852" duration="4489000" />
       <workItem from="1733089685520" duration="24090000" />
-      <workItem from="1733311421680" duration="17741000" />
+      <workItem from="1733311421680" duration="18119000" />
     </task>
     <servers />
   </component>
