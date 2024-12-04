@@ -50,6 +50,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9hcmQvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/omer/Task-Manager/Views/Board/SharedBoards.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9hcmQvU2hhcmVkQm9hcmRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/omer/Task-Manager/Views/Calendar/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FsZW5kYXIvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
