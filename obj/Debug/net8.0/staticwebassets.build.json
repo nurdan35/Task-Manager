@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "N22yKLtwPDdM+noTZwRY/xBRHHgBe5MAj178XldFaPI=",
+  "Hash": "4MFraY3H5EBwIMBieU/bw1Rda8WDGF0G6npW3sqX+l4=",
   "Source": "TaskManagement",
   "BasePath": "_content/TaskManagement",
   "Mode": "Default",
@@ -1326,6 +1326,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/board.js"
+    },
+    {
+      "Identity": "/Users/omer/Task-Manager/wwwroot/js/friends.js",
+      "SourceId": "TaskManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/omer/Task-Manager/wwwroot/",
+      "BasePath": "_content/TaskManagement",
+      "RelativePath": "js/friends.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/friends.js"
     },
     {
       "Identity": "/Users/omer/Task-Manager/wwwroot/js/site.js",

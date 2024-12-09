@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
  using Microsoft.EntityFrameworkCore;
  using TaskManagement.Models;
-using TaskManagement.ViewModels;
  
  namespace TaskManagement.Data
  {
@@ -43,17 +42,14 @@ using TaskManagement.ViewModels;
                  .WithMany(b => b.Tasks)
                  .HasForeignKey(t => t.BoardId)
                  .OnDelete(DeleteBehavior.Cascade);
- 
-             // ApplicationUser ve Board arasında iş birliği ilişkisi
-             modelBuilder.Entity<Board>()
-                 .HasMany(b => b.Collaborators)
-                 .WithMany("CollaboratingBoards"); // İki yönlü çoklu ilişki için CollaboratingBoards özelliği ApplicationUser sınıfında tanımlanabilir.
              
 
              modelBuilder.Entity<BoardShare>()
                  .HasOne(bs => bs.SharedWithUser)
                  .WithMany(u => u.SharedBoards)
-                 .HasForeignKey(bs => bs.SharedWithUserId);
+                 .HasForeignKey(bs => bs.SharedWithUserId)
+                 .OnDelete(DeleteBehavior.Cascade);;
+             
              
              modelBuilder.Entity<Board>()
                  .HasMany(b => b.BoardShares)

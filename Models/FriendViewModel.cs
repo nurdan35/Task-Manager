@@ -1,4 +1,4 @@
-namespace TaskManagement.ViewModels
+namespace TaskManagement.Models
 {
     public class FriendViewModel
     {

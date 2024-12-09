@@ -17,7 +17,6 @@ namespace TaskManagement.Models
         public ApplicationUser? User { get; set; } // Navigation property
 
         public ICollection<TaskItem> Tasks { get; set; } = new List<TaskItem>();
-        public ICollection<ApplicationUser> Collaborators { get; set; } = new List<ApplicationUser>(); // GNOS-23: Task sharing
         
         // BoardShare ilişkisi
         public ICollection<BoardShare> BoardShares { get; set; } = new List<BoardShare>();

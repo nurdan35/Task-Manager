@@ -49,7 +49,7 @@ namespace TaskManagement.Models
         // Zaman Takibi
         public ICollection<TimeTracking> TimeTrackings { get; set; } = new List<TimeTracking>();
         
-        public ICollection<ApplicationUser> Collaborators { get; set; } = new List<ApplicationUser>();
+        
 
     }
 }

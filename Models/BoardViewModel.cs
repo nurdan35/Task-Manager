@@ -5,6 +5,8 @@ namespace TaskManagement.Models
         public List<TaskItem> Tasks { get; set; } = new List<TaskItem>();
         public List<Board> Boards { get; set; } = new List<Board>();
         
+        //public List<Board> SharedBoards { get; set; } = new List<Board>();
+        
         public Board? Board { get; set; } // İlk board'u saklamak için eklendi
         public string CurrentUser { get; set; } = string.Empty;
 
@@ -15,5 +17,8 @@ namespace TaskManagement.Models
         
         public int TotalTaskCount => Tasks.Count;
         public int TotalBoardCount => Boards.Count;
+        
+        public ICollection<Board> SharedBoards { get; set; } = new List<Board>();
+
     }
 }

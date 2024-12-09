@@ -80,6 +80,53 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
+    // Added: Delete functionality for shared boards
+    document.querySelectorAll('form[asp-action="DeleteSharedBoard"] button').forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            let boardId = button.getAttribute('data-board-id'); // Button'dan Board ID'sini al
+            console.log(`Board ID retrieved: ${boardId}`); // Debug için kontrol edin
+
+            if (!boardId) {
+                console.error("Board ID is missing for the Remove action.");
+                return;
+            }
+
+            // Confirm before deletion
+            if (!confirm("Are you sure you want to remove this shared board?")) {
+                return;
+            }
+
+            // Send an AJAX request to delete the shared board
+            fetch(`/Board/DeleteSharedBoard`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': csrfToken
+                },
+                body: JSON.stringify({ boardId: boardId })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        console.log(`Shared board with ID ${boardId} has been successfully removed.`);
+                        // Remove the board entry from the DOM
+                        let parentLi = button.closest('li');
+                        if (parentLi) {
+                            parentLi.remove();
+                        }
+                    } else {
+                        console.error(`Failed to remove shared board with ID ${boardId}.`);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    });
+
+
+
     // Function to update task status and make a request to the server
     function updateTaskStatus(taskId, newStatus, csrfToken) {
         return fetch('/Task/UpdateStatus', {

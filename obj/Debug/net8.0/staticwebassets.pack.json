@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets/js/board.js"
     },
     {
+      "Id": "/Users/omer/Task-Manager/wwwroot/js/friends.js",
+      "PackagePath": "staticwebassets/js/friends.js"
+    },
+    {
       "Id": "/Users/omer/Task-Manager/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },

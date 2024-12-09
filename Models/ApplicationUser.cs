@@ -21,7 +21,6 @@ namespace TaskManagement.Models
         public ICollection<Board> Boards { get; set; } = new List<Board>();
         public ICollection<TaskItem> TaskItems { get; set; } = new List<TaskItem>();
         public ICollection<Notification> Notifications { get; set; } = new List<Notification>();
-        public ICollection<Board> CollaboratingBoards { get; set; } = new List<Board>();
         public ICollection<BoardShare> SharedBoards { get; set; } = new List<BoardShare>();
     }
 }

@@ -1,19 +1,19 @@
-@model IEnumerable<TaskManagement.ViewModels.FriendViewModel>
+@model TaskManagement.Models.FriendsViewModel
 
 <h1>Your Friends</h1>
 
-@if (Model == null || !Model.Any())
+@if (Model.Friends == null || !Model.Friends.Any())
 {
     <p>You have no friends yet.</p>
 }
 else
 {
-    <ul>
-        @foreach (var friend in Model)
+    <ul class="list-group">
+        @foreach (var friend in Model.Friends)
         {
-            <li>
-                <strong>@friend.DisplayName</strong>
-                <form method="post" asp-controller="Friendship" asp-action="RemoveFriend" style="display: inline;">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>@friend.DisplayName</span>
+                <form method="post" asp-action="RemoveFriend" asp-controller="Friendship">
                     <input type="hidden" name="friendId" value="@friend.Id" />
                     <button type="submit" class="btn btn-danger btn-sm">Remove</button>
                 </form>
@@ -21,9 +21,42 @@ else
         }
     </ul>
 }
-<h2>Send Friend Request</h2>
-<form method="post" asp-controller="Friendship" asp-action="SendRequest">
-    <input type="text" name="receiverId" placeholder="Enter user ID or email" class="form-control" />
-    <button type="submit" class="btn btn-primary mt-2">Send Request</button>
-</form>
 
+<h2>Friend Requests</h2>
+@if (Model.FriendRequests == null || !Model.FriendRequests.Any())
+{
+<p>You have no pending friend requests.</p>
+}
+else
+{
+<ul class="list-group">
+    @foreach (var request in Model.FriendRequests)
+    {
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            <strong>@request.RequesterDisplayName</strong> (<em>@request.RequesterEmail</em>)
+        </div>
+        <div>
+            <form method="post" asp-action="AcceptRequest" asp-controller="Friendship" style="display: inline;">
+                <input type="hidden" name="requestId" value="@request.RequestId" />
+                <button type="submit" class="btn btn-success btn-sm">Accept</button>
+            </form>
+            <form method="post" asp-action="RejectRequest" asp-controller="Friendship" style="display: inline;">
+                <input type="hidden" name="requestId" value="@request.RequestId" />
+                <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+            </form>
+        </div>
+    </li>
+    }
+</ul>
+}
+
+<h2>Send Friend Request</h2>
+<form id="sendFriendRequestForm" method="post" asp-controller="Friendship" asp-action="SendRequest">
+    <input type="text" name="receiverId" placeholder="Enter user ID or email" />
+    <button type="submit">Send Request</button>
+</form>
+<div id="sendRequestMessage" style="margin-top: 10px;"></div>
+
+
+<script src="/js/friends.js"></script>
