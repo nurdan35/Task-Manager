@@ -32,3 +32,8 @@ h2 {
 .badge {
     color: #000000;
 }
+
+/* used in "edit profile" */
+.selected-thumbnail {
+    border: 2px solid #007BFF; 
+}
