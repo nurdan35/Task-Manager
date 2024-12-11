@@ -1,0 +1,225 @@
+/*LANDING PAGE */
+.hero {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 120vh; /* Økt høyde for å gi mer plass */
+    background: linear-gradient(to bottom, #d6b8b1, #ffe6e1 80%, #ffffff); /* Forlenget gradient */
+    box-sizing: border-box;
+}
+
+
+/* Tekst på venstre side */
+.hero-section {
+    display: flex;
+    flex-direction: column; /* Sørger for at teksten vises i kolonner */
+    justify-content: center; /* Vertikal sentrering */
+    align-items: flex-start; /* Holder teksten på venstre side */
+    height: 100%; /* Fyller hele høyden av seksjonen */
+    padding-left: 50px; /* Legger til litt avstand fra venstre */
+}
+
+.hero-section h1 {
+    font-size: 3rem; /* A bold, eye-catching size */
+    font-weight: 700; /* Bold weight for emphasis */
+    color: #ffffff; /* Matches the gradient background */
+    margin-bottom: 20px; /* Spacing below */
+    line-height: 1.4; /* Improve readability */
+    text-align: left; /* Keeps it aligned to the left */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-section p {
+    font-size: 1.2rem; /* Moderate size for readability */
+    font-weight: 400; /* Regular weight */
+    color: #ffffff; /* Complement the background */
+    line-height: 1.6; /* Spacing between lines */
+    margin-bottom: 15px; /* Space below each paragraph */
+    text-align: left; /* Align with the heading */
+    max-width: 600px; /* Keep content width manageable */
+}
+.hero-section h1 span.highlight {
+    font-weight: bold;
+    color: #b1d6cd; /* Bruk en lys nyanse for kontrast */
+}
+
+
+
+/* Høyre seksjon (Knapper og bilde) */
+.right-section {
+    display: flex;
+    flex-direction: column; /* Plasser knappene og bildet i vertikal layout */
+    align-items: flex-end; /* Juster mot høyre */
+    gap: 20px; /* Avstand mellom knapper og bilde */
+    max-width: 40%; /* Begrens bredde */
+}
+
+/* Knapper */
+.button-section .btn {
+    background-color: #f2d9d0; /* Bakgrunnsfarge */
+    color: #337ff2; /* Sort tekst */
+    text-decoration: none;
+    padding: 15px 20px; /* Gjør knappene større */
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem; /* Større tekst */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+    display: inline-block;
+    width: 150px; /* Lik bredde på knappene */
+}
+
+.button-section .btn:hover {
+    background-color: white; /* Endring ved hover */
+    color: black;
+}
+
+/* Juster knappene høyere opp */
+.button-section {
+    margin-top: 20px; /* Flytt knappene opp */
+}
+
+/* Bildeseksjon under knappene */
+.image-section img {
+    width: 310px; /* Bredde tilsvarende knappene */
+    height: auto; /* Beholder proporsjonene */
+    margin-top: 20px; /* Avstand fra knappene */
+    border-radius: 10px; /* Avrundede hjørner */
+}
+
+
+
+/* About Section */
+.about {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #2c3e50;
+}
+
+/* Funksjoner i en horisontal layout */
+.features {
+    display: flex; /* Bruk flexbox for horisontal layout */
+    justify-content: space-around; /* Jevn avstand mellom elementene */
+    gap: 20px; /* Avstand mellom hvert element */
+    flex-wrap: wrap; /* Tillat radbryting på små skjermer */
+}
+
+/* Individuelle funksjoner */
+.feature {
+    max-width: 250px; /* Begrens bredden på hver funksjon */
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9; /* Valgfri bakgrunn for funksjoner */
+    border-radius: 10px; /* Gjør hjørnene avrundet */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Valgfri skygge */
+}
+
+/* Bilder i hver funksjon */
+.feature img {
+    max-width: 50px; /* Begrens bildets størrelse */
+    margin-bottom: 15px;
+}
+
+.feature h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/*REGISTER PAGE:   */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    width: 100%;
+    overflow: hidden;
+}
+body {
+    background: linear-gradient(to bottom, #f2d9d0, #ffffff);
+}
+
+.register {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 80px;
+}
+
+.section-register {
+    max-width: 50%;
+    margin-right: 10px; /* Add spacing from the form */
+}
+.hero-section-register h1 {
+    font-size: 2.8rem; /* Slightly larger headline */
+    margin-bottom: 15px;
+    color: #2c3e50;
+    line-height: 1.4; /* Increase line height */
+}
+
+.hero-section-register p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6; /* More space between lines */
+}
+
+/* Form Container */
+.register-form-container {
+    margin: 0 auto; /* Sentraliserer horisontalt */
+    padding: 30px 40px; /* Styrer avstanden inni boksen */
+}
+.register-form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px; /* Add space between form fields */
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-control {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.register-form-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f2d9d0;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.register-form-container button:hover {
+    background-color: #d9b8a9;
+    color: white;
+}
+
+/* Link section */
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}

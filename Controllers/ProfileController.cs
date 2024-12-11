@@ -48,8 +48,8 @@ namespace TaskManagement.Controllers
                     var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "profiles");
                     Directory.CreateDirectory(uploadsFolder);
                     
-                    // deleting the old profile picture, if there is one
-                    if (!string.IsNullOrEmpty(user.ProfilePicturePath))
+                    // deleting the old profile picture, if there is one (only those uploaded by user)
+                    if (!string.IsNullOrEmpty(user.ProfilePicturePath) && user.ProfilePicturePath.StartsWith("/images/profiles/"))
                     {
                         var oldFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", user.ProfilePicturePath.TrimStart('/'));
                         if (System.IO.File.Exists(oldFilePath))
