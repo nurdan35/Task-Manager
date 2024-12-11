@@ -186,8 +186,10 @@ C:/Users/nurda/TaskManagement/bin/Debug/net8.0/React.Core.dll
 C:/Users/nurda/TaskManagement/bin/Debug/net8.0/ru-RU/JavaScriptEngineSwitcher.Core.resources.dll
 /Users/omer/Task-Manager/bin/Debug/net8.0/appsettings.Development.json
 /Users/omer/Task-Manager/bin/Debug/net8.0/appsettings.json
-/Users/omer/Task-Manager/bin/Debug/net8.0/app.db
+/Users/omer/Task-Manager/bin/Debug/net8.0/package-lock.json
+/Users/omer/Task-Manager/bin/Debug/net8.0/package.json
 /Users/omer/Task-Manager/bin/Debug/net8.0/TaskManagement.staticwebassets.runtime.json
+/Users/omer/Task-Manager/bin/Debug/net8.0/app.db
 /Users/omer/Task-Manager/bin/Debug/net8.0/TaskManagement
 /Users/omer/Task-Manager/bin/Debug/net8.0/TaskManagement.deps.json
 /Users/omer/Task-Manager/bin/Debug/net8.0/TaskManagement.runtimeconfig.json

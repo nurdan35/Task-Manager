@@ -182,20 +182,20 @@ namespace TaskManagement.Controllers
             // Board'un sahibi olup olmadığını kontrol edin
             var board = await _db.Boards.FirstOrDefaultAsync(b => b.Id == boardId && b.UserId == userId);
             if (board == null)
-                return NotFound("Board not found or you do not have permission to share it.");
+                return Json(new { success = false, message ="Board not found or you do not have permission to share it." });
 
             // Kullanıcıyı e-posta ile bulun
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
             {
-                return BadRequest("User not found.");
+                return Json(new { success = false, message = "User not found." });
             }
 
             // Daha önce paylaşılmış mı kontrol edin
             var existingShare = await _db.BoardShares
                 .FirstOrDefaultAsync(bs => bs.BoardId == boardId && bs.SharedWithUserId == sharedWithUserId);
             if (existingShare != null)
-                return BadRequest("This board is already shared with this user.");
+                return Json(new { success = false, message = "This board is already shared with this user." });
 
             // Paylaşımı ekle
             var boardShare = new BoardShare
@@ -207,7 +207,7 @@ namespace TaskManagement.Controllers
             _db.BoardShares.Add(boardShare);
             await _db.SaveChangesAsync();
 
-            return RedirectToAction("Details", new { id = boardId });
+            return Json(new { success = true, message = "Board shared successfully." });
         }
         
         [HttpPost]

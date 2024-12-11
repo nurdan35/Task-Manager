@@ -9,45 +9,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bb80574-50cd-4eab-8dd8-f933625cfbc8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Models/FriendsViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wwwroot/js/friends.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/dataSources/e3869bc6-0392-45bb-9fae-12ba600ab14a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/dataSources/e3869bc6-0392-45bb-9fae-12ba600ab14a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/BoardController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/BoardController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/FriendshipController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/FriendshipController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ApplicationUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Board.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Board.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/BoardViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/BoardViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/TaskItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/TaskItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/FriendRequestViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/FriendRequestViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/FriendViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/FriendViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TaskManagement.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TaskManagement.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Board/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Board/Details.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Board/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Board/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Friendship/GetFriends.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Friendship/GetFriends.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Friendship/GetRequests.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Profile/Dashboard.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Profile/Dashboard.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.db-shm" beforeDir="false" afterPath="$PROJECT_DIR$/app.db-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.db-wal" beforeDir="false" afterPath="$PROJECT_DIR$/app.db-wal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Shared/_LoginPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_LoginPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/TaskManagement.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/TaskManagement.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/TaskManagement.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/TaskManagement.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/TaskManagement.staticwebassets.runtime.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/TaskManagement.staticwebassets.runtime.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/ref/TaskManagement.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/ref/TaskManagement.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/refint/TaskManagement.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/refint/TaskManagement.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/staticwebassets.build.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/staticwebassets.build.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/staticwebassets.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/staticwebassets.development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/staticwebassets.pack.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/staticwebassets.pack.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/staticwebassets/msbuild.TaskManagement.Microsoft.AspNetCore.StaticWebAssets.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/staticwebassets/msbuild.TaskManagement.Microsoft.AspNetCore.StaticWebAssets.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/scopedcss/bundle/TaskManagement.styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/scopedcss/bundle/TaskManagement.styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/scopedcss/projectbundle/TaskManagement.bundle.scp.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/scopedcss/projectbundle/TaskManagement.bundle.scp.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/board.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/board.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/site.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +72,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a0741529c8554d199992ef9e50684668d82800/b5/017fef10/ICollection`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/package-lock.json" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -95,27 +86,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.TaskManagement: http.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Launch Settings Profile.TaskManagement: https.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Omer&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.TaskManagement: http.executor": "Run",
+    ".NET Launch Settings Profile.TaskManagement: https.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Omer",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.nodejs",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;/Users/omer/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache&quot;,
-      &quot;/Users/omer/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache&quot;,
-      &quot;/Users/omer/Library/Application Support/Symbols/src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "/Users/omer/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache",
+      "/Users/omer/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache",
+      "/Users/omer/Library/Application Support/Symbols/src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.TaskManagement: https">
     <configuration name="TaskManagement: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/TaskManagement.csproj" />
@@ -170,6 +162,8 @@
       <workItem from="1733641754239" duration="1645000" />
       <workItem from="1733643404573" duration="2403000" />
       <workItem from="1733645838327" duration="1948000" />
+      <workItem from="1733791247400" duration="5335000" />
+      <workItem from="1733817775012" duration="53978000" />
     </task>
     <servers />
   </component>
@@ -179,5 +173,9 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
