@@ -4,9 +4,18 @@
 ViewData["Title"] = "Register";
 }
 
-<h2>@ViewData["Title"]</h2>
 
-<form asp-action="Register" method="post">
+
+<div class="register">
+    <!-- Text Section -->
+    <div class="section-register">
+        <h1>Welcome to ZenTask</h1>
+        <p>Join us today and make task management effortless. Organize, prioritize, and collaborate seamlessly!</p>
+    </div>
+
+    <div class="register-form-container">
+        <h2>@ViewData["Title"]</h2>
+    <form asp-action="Register" method="post">
     @Html.AntiForgeryToken()
     <div class="form-group">
         <label asp-for="Nickname"></label>
@@ -36,8 +45,12 @@ ViewData["Title"] = "Register";
     <button type="submit" class="btn btn-primary">Register</button>
 </form>
 
-<div>
-    Already have an account? <a asp-action="Login">Login here</a>.
+        <div class="register-link">
+     
+    
+          Already have an account? <a asp-action="Login">Login here</a>.
+        </div>
+    </div>
 </div>
 
 @section Scripts {

@@ -4,14 +4,21 @@
 ViewData["Title"] = "Create Board";
 }
 
-<h2>Create a New Board</h2>
+<div class="background">
+    <div class="create-board-page">
+        <div class="form-container">
+            <h1 class="page-title">Create a New Board</h1>
+            <p class="page-subtitle">Easily create a new board to organize your tasks and projects!</p>
+            <form asp-action="Create" method="post" class="create-board-form">
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label asp-for="Title" class="form-label">Title</label>
+                    <input asp-for="Title" class="form-input" id="Title" placeholder="Enter board title" required />
+                    <span asp-validation-for="Title" class="validation-error"></span>
+                </div>
 
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label asp-for="Title"></label>
-        <input asp-for="Title" class="form-control"/>
-        <span asp-validation-for="Title" class="text-danger"></span>
+                <button type="submit" class="btn btn-primary create-board-btn">Create Board</button>
+            </form>
+        </div>
     </div>
-
-    <button type="submit" class="btn btn-primary">Create Board</button>
-</form>
+</div> 

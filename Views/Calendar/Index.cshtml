@@ -1,62 +1,28 @@
-<h2>Calendar</h2>
-<div id="calendar"></div>
+@{
+    ViewData["Title"] = "Calendar";
+}
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var calendarEl = document.getElementById('calendar');
-        var events = [];
-        @foreach (var task in Model)
-        {
-            <text>
-    events.push({
-        id: "@task.Id",
-        title: "@task.Title",
-        start: "@task.DueDate.ToString("yyyy-MM-dd")",
-        color: "@(task.Status == "done" ? "green" : (task.Status == "doing" ? "blue" : "red"))",
-        description: "Priority: @task.Priority",
-        reminderDate: "@task.ReminderDate?.ToString("yyyy-MM-dd")"
-    });
-    </text>
-        }
-        var antiforgeryToken = '@ViewData["AntiforgeryToken"]';
-        
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
-            headerToolbar: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-            },
-            editable: true,  // Sürükle-bırak için true yapıldı
-            selectable: true,
-            events: events,
+<!-- Link til ekstern CSS -->
+<link rel="stylesheet" href="~/css/calendar.css" />
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
 
-            // Sürükle-bırak sonrası sunucuya güncellemeyi gönder
-             eventDrop: function(info) {
-                var newDueDate = info.event.start.toISOString().split('T')[0];
+<div class="calendar-page">
+    <h2 class="page-title">Calendar</h2>
 
-                fetch('/Calendar/UpdateTaskDate', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'RequestVerificationToken': antiforgeryToken
-                    },
-                    body: JSON.stringify({
-                        id: info.event.id,
-                        newDueDate: newDueDate
-                    })
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        alert("An error occurred while updating the task date.");
-                    }
-                });
-            },
+    <!-- Hidden input for antiforgery token om nødvendig -->
+    <input type="hidden" name="__RequestVerificationToken" value="@ViewData["AntiforgeryToken"]" />
 
-            eventClick: function(info) {
-                alert('Task: ' + info.event.title + '\n' + info.event.extendedProps.description);
-            }
-        });
-        calendar.render();
-    });
-</script>
+    <div class="search-bar-container">
+        <input type="text" id="calendarSearchInput" placeholder="Search events by title or date (YYYY-MM-DD)..." class="form-control search-bar" />
+    </div>
+
+    <div class="calendar-container">
+        <div id="calendar"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <!-- Link til ekstern JS-fil -->
+    <script src="~/js/calendar.js"></script>
+}

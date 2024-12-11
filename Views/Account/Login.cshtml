@@ -3,12 +3,18 @@
 @{
 ViewData["Title"] = "Login";
 }
-
-<h2>@ViewData["Title"]</h2>
-
-<form asp-action="Login" method="post">
-    @Html.AntiForgeryToken()
-
+<div class="register">
+    <!-- Venstre seksjon med velkomsttekst -->
+    <div class="section-register">
+        <h1 class="hero-section-register">Welcome Back!</h1>
+        <p class="hero-section-register">
+            Log in to your ZenTask account and pick up where you left off. Manage your tasks, stay organized, and achieve more effortlessly!
+        </p>
+    </div>
+    <div class="register-form-container">
+    <h2>@ViewData["Title"]</h2>
+    <form asp-action="Login" method="post">
+         @Html.AntiForgeryToken()
     <div class="form-group">
         <label asp-for="Email"></label>
         <input asp-for="Email" type="email" class="form-control" required />
@@ -29,6 +35,8 @@ ViewData["Title"] = "Login";
     <button type="submit" class="btn btn-primary">Login</button>
 </form>
 
-<div>
-    Don't have an account? <a asp-action="Register">Register here</a>.
+        <div class="register-link">
+            Don't have an account? <a asp-action="Register">Register here</a>.
+        </div>
+    </div>
 </div>

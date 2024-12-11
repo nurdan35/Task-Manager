@@ -3,50 +3,61 @@
 @{
 ViewData["Title"] = "Create Task";
 }
+<div class="background">
+    <div class="create-task">
+        <div class="section-task tasks-header">
+            <h1>Create a new task</h1>
+            <p>Organize your task efficiently and ensure you stay on top of your priorities. Set deadlines, add tags, and mark tasks as important with ease!</p>
+        </div>
+        
+        <div class="form-container task-form-container">
+            <h2>@ViewData["Title"]</h2>
+            <form asp-action="Create" method="post">
+                <input type="hidden" name="boardId" value="@ViewBag.BoardId" />
 
-<h2>Create a New Task</h2>
+                <div class="form-group">
+                    <label asp-for="Title" class="form-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="validation-error"></span>
+                </div>
 
-<form asp-action="Create" method="post">
-    <input type="hidden" name="boardId" value="@ViewBag.BoardId" />
+                <div class="form-group">
+                    <label asp-for="Description" class="form-label"></label>
+                    <textarea asp-for="Description" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="validation-error"></span>
+                </div>
 
-    <div class="form-group">
-        <label asp-for="Title"></label>
-        <input asp-for="Title" class="form-control"/>
-        <span asp-validation-for="Title" class="text-danger"></span>
+                <div class="form-group">
+                    <label asp-for="DueDate" class="form-label"></label>
+                    <input asp-for="DueDate" type="date" class="form-control" />
+                    <span asp-validation-for="DueDate" class="validation-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Tag" class="form-label"></label>
+                    <input asp-for="Tag" class="form-control" />
+                    <span asp-validation-for="Tag" class="validation-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Priority" class="form-label"></label>
+                    <select asp-for="Priority" class="form-control">
+                        <option value="Low">Low</option>
+                        <option value="Normal" selected>Normal</option>
+                        <option value="High">High</option>
+                    </select>
+                    <span asp-validation-for="Priority" class="validation-error"></span>
+                </div>
+
+
+                <div class="form-check">
+                    <input asp-for="IsFlagged" class="form-check-input" type="checkbox" />
+                    <label asp-for="IsFlagged" class="form-check-label">Mark as Important</label>
+                </div>
+
+                <button type="submit" class="btn btn-purple">Create Task</button>
+            </form>
+        </div>
     </div>
+</div>
 
-    <div class="form-group">
-        <label asp-for="Description"></label>
-        <textarea asp-for="Description" class="form-control"></textarea>
-        <span asp-validation-for="Description" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="DueDate"></label>
-        <input asp-for="DueDate" type="date" class="form-control"/>
-        <span asp-validation-for="DueDate" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Tag"></label>
-        <input asp-for="Tag" class="form-control"/>
-        <span asp-validation-for="Tag" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Priority"></label>
-        <select asp-for="Priority" class="form-control">
-            <option value="Low">Low</option>
-            <option value="Normal" selected>Normal</option>
-            <option value="High">High</option>
-        </select>
-        <span asp-validation-for="Priority" class="text-danger"></span>
-    </div>
-
-    <div class="form-check">
-        <input asp-for="IsFlagged" class="form-check-input" type="checkbox"/>
-        <label asp-for="IsFlagged" class="form-check-label">Mark as Important</label>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Create Task</button>
-</form>

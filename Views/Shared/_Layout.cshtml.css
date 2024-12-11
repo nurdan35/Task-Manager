@@ -1,5 +1,25 @@
 ﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+/* Fjern marger og padding fra hele siden */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Sørg for at alle seksjoner bruker hele bredden */
+.main-content {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fjerner begrensninger på container */
+.container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 a.navbar-brand {
   white-space: normal;

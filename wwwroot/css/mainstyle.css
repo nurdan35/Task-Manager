@@ -1,0 +1,390 @@
+/* GENERELL STIL FOR ALLE KNAPPER: */
+/* Generell stil for alle knapper */
+.btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Fargevariasjoner */
+.btn-primary,
+.btn-purple {
+    background-color: #cfcbe5;
+    color: #ffffff;
+}
+.btn-primary:hover,
+.btn-purple:hover {
+    background-color: #b7b5cc;
+}
+
+.btn-secondary {
+    background-color: #9e9e9e;
+    color: #ffffff;
+}
+.btn-secondary:hover {
+    background-color: #b7b5cc;
+}
+
+.btn-green {
+    background-color: #b1d6cd;
+    color: #ffffff;
+}
+.btn-green:hover {
+    background-color: #88a1a3;
+}
+
+.btn-pink {
+    background-color: #f2d9d0;
+    color: #ffffff;
+}
+.btn-pink:hover {
+    background-color: #e2c5bb;
+}
+
+/* Spesifikke knapper */
+.btn-create {
+    border-radius: 20px;
+}
+
+
+
+/*LANDING PAGE */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #d6b8b1, #ffe6e1 80%, #ffffff);
+    padding: 30px;
+    box-sizing: border-box;
+    align-items: flex-start;
+}
+
+/* Tekst på venstre side */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 60%;
+    padding-left: 50px;
+    
+}
+.hero-section h1 {
+    font-family: 'Poppins', sans-serif; /* Bruk Poppins */
+    font-size: 3rem; /* Mindre overskrift */
+    font-weight: 600; /* Moderat fet */
+    color: #ffffff; /* Lys farge */
+    text-align: left;
+    line-height: 1.4; /* Mindre linjehøyde */
+    margin-bottom: 10px; /* Stram opp mellomrommet under */
+    max-width: 600px; /* Begrens bredde */
+}
+
+.hero-section p {
+    font-family: 'Open Sans', sans-serif; /* Bruk Open Sans */
+    font-size: 1.2rem; /* Standard lesbar størrelse */
+    font-weight: 400; /* Normal vekt */
+    color: #ffffff; /* Samme kontrast som overskriften */
+    line-height: 1.6; /* Luftig tekst */
+    margin-bottom: 5px; /* Tettere mellom avsnitt */
+    max-width: 500px; /* Sikre at det ikke strekker seg for langt */
+}
+
+.hero-section h1 span.highlight {
+    font-weight: bold;
+    color: #b1d6cd; /* Bruk en lys nyanse for kontrast */
+}
+
+
+
+/* Høyre seksjon (Knapper og bilde) */
+.right-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Knapper */
+.button-section .btn {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f2d9d0;
+    color: #337ff2;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 25px; /* Gjør knappene rundere */
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    width: auto;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Lett skygge */
+}
+.button-section {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.button-section .btn:hover {
+    background-color: white; /* Endring ved hover */
+    color: black;
+}
+
+
+/* Bildeseksjon under knappene */
+.image-section img {
+    width: 350px; /* Større bilde */
+    height: auto;
+    border-radius: 15px; /* Avrundede kanter */
+    margin-top: 20px;
+}
+
+
+
+/* About Section */
+.about {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #2c3e50;
+}
+
+/* Funksjoner i en horisontal layout */
+.features {
+    display: flex; /* Bruk flexbox for horisontal layout */
+    justify-content: space-around; /* Jevn avstand mellom elementene */
+    gap: 20px; /* Avstand mellom hvert element */
+    flex-wrap: wrap; /* Tillat radbryting på små skjermer */
+}
+
+/* Individuelle funksjoner */
+.feature {
+    max-width: 250px; /* Begrens bredden på hver funksjon */
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9; /* Valgfri bakgrunn for funksjoner */
+    border-radius: 10px; /* Gjør hjørnene avrundet */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Valgfri skygge */
+}
+
+/* Bilder i hver funksjon */
+.feature img {
+    max-width: 50px; /* Begrens bildets størrelse */
+    margin-bottom: 15px;
+}
+
+.feature h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/*REGISTER PAGE:   */
+
+
+.register {
+    display: flex;
+    padding: 50px 80px; /* Adjust padding as needed */
+    background: linear-gradient(to bottom, #f2d9d0, #ffffff);
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-register {
+    max-width: 50%;
+    margin-right: 10px; /* Add spacing from the form */
+}
+.hero-section-register h1 {
+    font-size: 2.8rem; /* Slightly larger headline */
+    margin-bottom: 15px;
+    color: #2c3e50;
+    line-height: 1.4; /* Increase line height */
+}
+
+.hero-section-register p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6; /* More space between lines */
+}
+
+/* Form Container */
+.register-form-container {
+    margin: 0 auto; /* Sentraliserer horisontalt */
+    padding: 30px 40px; /* Styrer avstanden inni boksen */
+}
+.register-form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px; /* Add space between form fields */
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+
+
+.register-form-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f2d9d0;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.register-form-container button:hover {
+    background-color: #d9b8a9;
+    color: white;
+}
+
+/* Link section */
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+/*CALENDAR*/
+.calendar-page {
+    background: linear-gradient(to bottom, #f2d9d0, #ffffff);
+    padding: 50px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Overskrifter */
+.page-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* FullCalendar spesifikke tilpasninger */
+.fc-header-toolbar {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.fc-daygrid-day {
+    padding: 10px;
+}
+
+.fc-event {
+    border-radius: 5px;
+    font-size: 0.9rem;
+    padding: 5px;
+}
+
+.fc-daygrid-day-frame {
+    padding: 10px;
+}
+
+.fc-toolbar-title {
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+.fc-button {
+    background-color: #cfcbe5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+.fc-button:hover {
+    background-color: #b7b5cc;
+    color: white;
+}
+/*EDIT PROFILE*/
+/* Page Wrapper */
+.profile-edit-page {
+    background: linear-gradient(to bottom, #f2d9d0, #ffffff);
+    padding: 50px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* Title Styling */
+.page-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/*CALENDAR STYLE*/
+.calendar-page {
+    margin: 20px;
+}
+
+.page-title {
+    margin-bottom: 20px;
+}
+
+.calendar-container {
+    margin-top: 20px;
+}
+
+.search-bar-container {
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    max-width: 300px;
+    display: inline-block;
+}

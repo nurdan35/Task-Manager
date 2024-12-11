@@ -1,12 +1,21 @@
 @model TaskManagement.Models.TaskItem
 
-<h2>Task Details</h2>
-<p><strong>Title:</strong> @Model.Title</p>
-<p><strong>Description:</strong> @Model.Description</p>
-<p><strong>Status:</strong> @Model.Status</p>
-<p><strong>Due Date:</strong> @Model.DueDate.ToString("yyyy-MM-dd")</p>
-<p><strong>Priority:</strong> @Model.Priority</p>
-<p><strong>Assigned To:</strong> @Model.AssignedTo</p>
+<div class="details-page">
+    <div class="form-container">
+        <h2 class="task-details">Task Details</h2>
 
-<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit Task</a>
-<a asp-action="Index" class="btn btn-secondary">Back to Tasks</a>
+        <div class="task-details">
+            <p class="task-meta"><strong>Title:</strong> @Model.Title</p>
+            <p class="task-meta"><strong>Description:</strong> @Model.Description</p>
+            <p class="task-meta"><strong>Status:</strong> @Model.Status</p>
+            <p class="task-meta"><strong>Due Date:</strong> @Model.DueDate.ToString("yyyy-MM-dd")</p>
+            <p class="task-meta"><strong>Priority:</strong> @Model.Priority</p>
+            <p class="task-meta"><strong>Assigned To:</strong> @Model.AssignedTo</p>
+        </div>
+
+        <div class="task-actions">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit Task</a>
+            <a asp-action="Index" class="btn btn-secondary">Back to Tasks</a>
+        </div>
+    </div>
+</div>

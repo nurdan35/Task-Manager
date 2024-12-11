@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TaskManagement.Data;
 using TaskManagement.Models;
+using System.Globalization;
 
 namespace TaskManagement.Controllers
 {
@@ -35,6 +36,45 @@ namespace TaskManagement.Controllers
 
             return View(tasks);
         }
+        [HttpGet]
+        public async Task<IActionResult> SearchTasks(string query)
+        {
+            var userId = _userManager.GetUserId(User);
+
+            // Sett query til tom streng om den er null, for enkelhets skyld
+            if (string.IsNullOrWhiteSpace(query))
+                query = "";
+
+            // Gjør søket case-insensitive ved å bruke ToLower()
+            string lowerQuery = query.ToLower();
+
+            // Prøv å parse dato i formatet yyyy-MM-dd (f.eks. 2023-12-10)
+            bool isDate = DateTime.TryParseExact(
+                query, 
+                "yyyy-MM-dd", 
+                CultureInfo.InvariantCulture, 
+                DateTimeStyles.None, 
+                out DateTime parsedDate
+            );
+
+            var filteredTasks = await _db.TaskItems
+                .Where(t => t.UserId == userId &&
+                            (lowerQuery == "" ||
+                             t.Title.ToLower().Contains(lowerQuery) ||
+                             t.Description.ToLower().Contains(lowerQuery) ||
+                             (isDate && t.DueDate.Date == parsedDate.Date)))
+                .Select(t => new {
+                    id = t.Id,
+                    title = t.Title,
+                    description = t.Description,
+                    dueDate = t.DueDate,
+                    status = t.Status
+                })
+                .ToListAsync();
+
+            return Json(filteredTasks);
+        }
+
 
         // GET: Task/Details/5
         public async Task<IActionResult> Details(int? id)

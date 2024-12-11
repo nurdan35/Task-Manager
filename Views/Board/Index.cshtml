@@ -4,36 +4,38 @@
     ViewData["Title"] = "Boards";
 }
 
-<h2 class="text-center">@ViewData["Title"]</h2>
+<div class="boards-page">
+    <div class="header-section">
+        <h1 class="page-title">@ViewData["Title"]</h1>
+        <p class="page-subtitle">Manage your boards effortlessly. View, edit and create new boards to organize your tasks!</p>
+        <a asp-action="Create" asp-controller="Board" class="btn btn-primary create-board-btn">Create New Board</a>
+    </div>
 
-<!-- Create New Board Button -->
-<a asp-action="Create" asp-controller="Board" class="btn btn-primary mb-3">Create New Board</a>
-
-<div class="clearfix">
-    <div class="sidebar">
-        <h2>Your Boards</h2>
+    <div class="boards-container">
         @if (Model.Boards == null || !Model.Boards.Any())
         {
-            <p>No boards available for this user.</p>
+            <p class="no-boards">No boards available for this user.</p>
         }
         else
         {
-            <ul>
-                @foreach (var board in Model.Boards)
-                {
-                    <li>
-                        <strong>@board.Title</strong>
-                        <div class="board-actions">
-                            <a asp-action="Details" asp-route-id="@board.Id" class="btn btn-sm btn-info">View</a>
-                            <a asp-action="Edit" asp-route-id="@board.Id" class="btn btn-sm btn-primary">Edit</a>
-                            <a asp-action="Delete" asp-route-id="@board.Id" class="btn btn-sm btn-danger">Delete</a>
-                        </div>
-                    </li>
-                }
-            </ul>
-        }
+                <ul class="boards-list">
+                    @foreach (var board in Model.Boards)
+                    {
+                        <li class="board-item">
+                            <strong class="board-title">@board.Title</strong>
+                            <div class="board-actions">
+                                <a asp-action="Details" asp-route-id="@board.Id" class="btn btn-sm btn-info">View</a>
+                                <a asp-action="Edit" asp-route-id="@board.Id" class="btn btn-sm btn-primary">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@board.Id" class="btn btn-sm btn-danger">Delete</a>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            }
+        </div>
     </div>
-</div>
+
+
 
 @section Scripts {
     <script src="~/js/board.js"></script>

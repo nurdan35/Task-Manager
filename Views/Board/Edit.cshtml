@@ -1,17 +1,26 @@
 @model TaskManagement.Models.Board
+<link rel="stylesheet" href="~/css/board.css" />
 
 @{
 ViewData["Title"] = "Edit Board";
 }
+<div class="background">
+    <div class="form-container">
+        <h2 class="page-title">Edit Board</h2>
 
-<h2>Edit Board</h2>
+        <form asp-action="Edit" method="post" class="create-board-form">
+            <div class="form-group">
+                <label asp-for="Title" class="form-label"></label>
+                <input asp-for="Title" class="form-input" />
+                <span asp-validation-for="Title" class="validation-error"></span>
+            </div>
 
-<form asp-action="Edit" method="post">
-    <div class="form-group">
-        <label asp-for="Title"></label>
-        <input asp-for="Title" class="form-control" />
-        <span asp-validation-for="Title" class="text-danger"></span>
+            <button type="submit" class="btn btn-primary create-board-btn">Save Changes</button>
+        </form>
     </div>
+</div>
 
-    <button type="submit" class="btn btn-primary">Save Changes</button>
-</form>
+ @section Scripts {
+    <script src="~/js/board.js"></script>
+    <link rel="stylesheet" href="~/css/board.css"/>
+    }
