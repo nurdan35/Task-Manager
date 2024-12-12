@@ -38,17 +38,6 @@ namespace TaskManagement.Controllers
                 .Where(b => b != null)
                 .ToListAsync();
             
-
-            // Kullanıcının paylaşılan boardlarını getir
-            var sharedBoards = await _db.BoardShares
-                .Where(bs => bs.SharedWithUserId == userId)
-                .Include(bs => bs.Board)
-                .ThenInclude(b => b.Tasks)
-                .Select(bs => bs.Board)
-                .Where(b => b != null)
-                .ToListAsync();
-            
-            
             var viewModel = new BoardViewModel
             {
                 Board = boards.FirstOrDefault(),

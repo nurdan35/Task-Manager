@@ -21,8 +21,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
@@ -31,15 +31,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\profiles\" />
-    <Watch Include="wwwroot\**\*" />
+    <Folder Include="wwwroot/images/profiles/" />
+    <Watch Include="wwwroot/**/*" />
   </ItemGroup>
   
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="Views\Account\Login.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Account\Register.cshtml" />
-    <_ContentIncludedByDefault Remove="1.Temp\Login.cshtml" />
-    <_ContentIncludedByDefault Remove="1.Temp\Register.cshtml" />
+    <_ContentIncludedByDefault Remove="Views/Account/Login.cshtml" />
+    <_ContentIncludedByDefault Remove="Views/Account/Register.cshtml" />
+    <_ContentIncludedByDefault Remove="1.Temp/Login.cshtml" />
+    <_ContentIncludedByDefault Remove="1.Temp/Register.cshtml" />
   </ItemGroup>
 
 </Project>
