@@ -4,5 +4,7 @@ namespace TaskManagement.Models
     {
         public bool EmailNotificationsEnabled { get; set; }
         public bool SmsNotificationsEnabled { get; set; }
+        public bool PushNotificationsEnabled { get; set; }
+
     }
 }

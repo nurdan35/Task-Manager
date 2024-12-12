@@ -5,11 +5,12 @@ namespace TaskManagement.Models
     public class RegisterViewModel
     {
         [Required(ErrorMessage = "Email is required.")]
-        [EmailAddress(ErrorMessage = "Invalid email format.")]
+        [EmailAddress(ErrorMessage = "Please provide a valid email address.")]
         public string Email { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Nickname is required.")]
         [MaxLength(50, ErrorMessage = "Nickname cannot exceed 50 characters.")]
+        [MinLength(3, ErrorMessage = "Nickname must be at least 3 characters.")]
         public string Nickname { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Password is required.")]

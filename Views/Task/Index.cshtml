@@ -2,7 +2,7 @@
 
 <h2>Tasks</h2>
 
-<a asp-action="Create" class="btn btn-success mb-3">Create New Task</a>
+<a asp-action="Create" asp-controller="Task" asp-route-boardId="@ViewBag.BoardId" class="btn btn-success mb-3">Create New Task</a>
 <ul>
     @if (Model == null || !Model.Any())
     {

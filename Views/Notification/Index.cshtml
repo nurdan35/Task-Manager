@@ -1,11 +1,23 @@
-@model List<TaskManagement.Models.Notification>
+@model IEnumerable<TaskManagement.Models.Notification>
 
 <h2>Notifications</h2>
-<ul>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Message</th>
+        <th>Date</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
     @foreach (var notification in Model)
     {
-        <li>
-            <strong>@notification.NotificationDate:</strong> @notification.Message
-        </li>
+    <tr class="@((notification.IsRead) ? "text-muted" : "")">
+        <td>@notification.Message</td>
+        <td>@notification.NotificationDate.ToString("g")</td>
+        <td>@(notification.IsRead ? "Read" : "Unread")</td>
+    </tr>
     }
-</ul>
+    </tbody>
+</table>

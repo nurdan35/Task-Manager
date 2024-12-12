@@ -4,6 +4,6 @@ function selectProfilePicture(img) {
         thumbnail.style.border = "2px solid transparent";
     });
     img.style.border = "2px solid #d6b8b1"; // Highlight the selected one
-    
+
     document.getElementById('SelectedProfilePicture').value = img.getAttribute('data-image-path');
 }

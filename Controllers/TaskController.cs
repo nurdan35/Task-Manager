@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TaskManagement.Data;
 using TaskManagement.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 namespace TaskManagement.Controllers
 {
@@ -33,6 +35,9 @@ namespace TaskManagement.Controllers
             var tokens = _antiforgery.GetAndStoreTokens(HttpContext);
             ViewData["RequestVerificationToken"] = tokens.RequestToken;
 
+            var userBoard = await _db.Boards.FirstOrDefaultAsync(b => b.UserId == userId);
+            ViewBag.BoardId = userBoard?.Id;
+
             return View(tasks);
         }
 
@@ -51,45 +56,130 @@ namespace TaskManagement.Controllers
         }
 
         // GET: Task/Create
-        public IActionResult Create(int boardId)
+        public async Task<IActionResult> Create(int? boardId = null)
         {
-            ViewBag.BoardId = boardId;
-            return View();
+            var currentUserId = _userManager.GetUserId(User);
+            if (currentUserId == null)
+            {
+                TempData["ErrorMessage"] = "You must be logged in to create tasks.";
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Kullanıcının board'larını al
+            var boards = await _db.Boards
+                .Where(b => b.UserId == currentUserId)
+                .Select(b => new SelectListItem
+                {
+                    Value = b.Id.ToString(),
+                    Text = b.Title
+                }).ToListAsync();
+
+            if (!boards.Any())
+            {
+                TempData["InfoMessage"] = "You need to create a board before adding tasks.";
+                return RedirectToAction("Create", "Board");
+            }
+
+            // Model oluştur
+            var model = new BoardViewModel
+            {
+                BoardSelectList = boards,
+                TaskItem = new TaskItem { DueDate = DateTime.Today }
+            };
+
+            if (boardId.HasValue)
+            {
+                var boardExists = await _db.Boards
+                    .AnyAsync(b => b.Id == boardId && b.UserId == currentUserId);
+
+                if (!boardExists)
+                {
+                    TempData["ErrorMessage"] = "You do not have access to this board or it does not exist.";
+                    return RedirectToAction("Index", "Board");
+                }
+
+                model.TaskItem.BoardId = boardId.Value;
+            }
+
+            return View(model);
         }
+
 
         // POST: Task/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(TaskItem taskItem, int boardId)
+        public async Task<IActionResult> Create(BoardViewModel model)
         {
-            if (ModelState.IsValid)
+            var currentUserId = _userManager.GetUserId(User);
+            if (currentUserId == null)
             {
-                var userId = _userManager.GetUserId(User);
-                if (userId == null)
-                {
-                    return Unauthorized("User must be logged in to create tasks.");
-                }
-
-                var board = await _db.Boards
-                    .Include(b => b.Tasks)
-                    .FirstOrDefaultAsync(b => b.Id == boardId && b.UserId == userId);
-
-                if (board == null)
-                {
-                    return NotFound("Board not found or you do not have permission to add tasks to this board.");
-                }
-
-                taskItem.BoardId = board.Id;
-                taskItem.UserId = userId; // Görevi oluşturan kullanıcıyı ayarla
-                _db.TaskItems.Add(taskItem);
-                await _db.SaveChangesAsync();
-
-                return RedirectToAction("Details", "Board", new { id = boardId });
+                TempData["ErrorMessage"] = "You must be logged in to create tasks.";
+                return RedirectToAction("Login", "Account");
             }
 
-            ViewBag.BoardId = boardId;
-            return View(taskItem);
+            if (model.TaskItem.BoardId <= 0)
+            {
+                ModelState.AddModelError("TaskItem.BoardId", "Please select a valid board.");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                // Dropdown için board listesini yeniden yükle
+                model.BoardSelectList = await _db.Boards
+                    .Where(b => b.UserId == currentUserId)
+                    .Select(b => new SelectListItem
+                    {
+                        Value = b.Id.ToString(),
+                        Text = b.Title
+                    }).ToListAsync();
+
+                TempData["ErrorMessage"] = "Please correct the highlighted errors.";
+                return View(model);
+            }
+
+            var boardExists = await _db.Boards
+                .AnyAsync(b => b.Id == model.TaskItem.BoardId && b.UserId == currentUserId);
+
+            if (!boardExists)
+            {
+                ModelState.AddModelError("TaskItem.BoardId", "The selected board is not valid or does not belong to you.");
+                model.BoardSelectList = await _db.Boards
+                    .Where(b => b.UserId == currentUserId)
+                    .Select(b => new SelectListItem
+                    {
+                        Value = b.Id.ToString(),
+                        Text = b.Title
+                    }).ToListAsync();
+                return View(model);
+            }
+
+            try
+            {
+                model.TaskItem.UserId = currentUserId;
+                _db.TaskItems.Add(model.TaskItem);
+                await _db.SaveChangesAsync();
+
+                var notification = new Notification
+                {
+                    Message = $"New task created: {model.TaskItem.Title}",
+                    NotificationDate = DateTime.UtcNow,
+                    UserId = currentUserId,
+                    Type = Notification.NotificationType.Push,
+                    IsRead = false
+                };
+
+                _db.Notifications.Add(notification);
+                await _db.SaveChangesAsync();
+                
+                return RedirectToAction("Index", "Task");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"An error occurred while creating the task: {ex.Message}";
+                return View(model);
+            }
         }
+
 
         // GET: Task/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -122,8 +212,8 @@ namespace TaskManagement.Controllers
 
                 try
                 {
-                    taskItem.UserId = userId!; // Kullanıcıyı ayarla
-                    taskItem.BoardId = existingTask.BoardId; // BoardId'yi koru
+                    taskItem.UserId = userId!;
+                    taskItem.BoardId = existingTask.BoardId;
                     _db.TaskItems.Update(taskItem);
                     await _db.SaveChangesAsync();
                 }
@@ -186,7 +276,7 @@ namespace TaskManagement.Controllers
             {
                 return Forbid();
             }
-            
+
             // Check if the new status is a valid value
             var validStatuses = new List<string> { "todo", "doing", "done" };
             if (!validStatuses.Contains(newStatus))

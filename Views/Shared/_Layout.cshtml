@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content="@ViewData["RequestVerificationToken"]">
     <title>@ViewData["Title"] - TaskManagement</title>
-
+    
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
@@ -46,6 +46,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Notification" asp-action="Index">Notifications</a>
                     </li>
+                    
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
@@ -77,6 +78,9 @@
 <script src="~/js/site.js" asp-append-version="true"></script>
 <script src="~/js/board.js" asp-append-version="true"></script>
 <script src="~/js/profile.js" asp-append-version="true"></script>
+<script src="~/js/friends.js" asp-append-version="true"></script>
+<script src="~/js/profile.js" asp-append-version="true"></script>
+<script src="~/js/push-subscription.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
