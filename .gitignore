@@ -2,3 +2,5 @@
 /obj/
 *.cache
 *.dll
+.idea/
+app.db
