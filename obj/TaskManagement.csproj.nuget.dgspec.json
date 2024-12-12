@@ -72,6 +72,10 @@
             "React.AspNet": {
               "target": "Package",
               "version": "[5.2.12, )"
+            },
+            "WebPush": {
+              "target": "Package",
+              "version": "[1.0.12, )"
             }
           },
           "imports": [

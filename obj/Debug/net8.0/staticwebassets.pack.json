@@ -25,12 +25,40 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\images\\profiles\\a52b58e9-c995-4a05-99c4-7b5280f6efbe_Skjermbilde 2024-04-16 122756.png",
-      "PackagePath": "staticwebassets\\images\\profiles\\a52b58e9-c995-4a05-99c4-7b5280f6efbe_Skjermbilde 2024-04-16 122756.png"
+      "Id": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\images\\profileExamples\\profile1.jpeg",
+      "PackagePath": "staticwebassets\\images\\profileExamples\\profile1.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\images\\profileExamples\\profile2.jpeg",
+      "PackagePath": "staticwebassets\\images\\profileExamples\\profile2.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\images\\profileExamples\\profile3.jpeg",
+      "PackagePath": "staticwebassets\\images\\profileExamples\\profile3.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\images\\profileExamples\\profile4.jpeg",
+      "PackagePath": "staticwebassets\\images\\profileExamples\\profile4.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\images\\profileExamples\\profile5.jpeg",
+      "PackagePath": "staticwebassets\\images\\profileExamples\\profile5.jpeg"
     },
     {
       "Id": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\js\\board.js",
       "PackagePath": "staticwebassets\\js\\board.js"
+    },
+    {
+      "Id": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\js\\friends.js",
+      "PackagePath": "staticwebassets\\js\\friends.js"
+    },
+    {
+      "Id": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\js\\profile.js",
+      "PackagePath": "staticwebassets\\js\\profile.js"
+    },
+    {
+      "Id": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\js\\push-subscription.js",
+      "PackagePath": "staticwebassets\\js\\push-subscription.js"
     },
     {
       "Id": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\js\\site.js",

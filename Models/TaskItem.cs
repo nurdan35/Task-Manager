@@ -27,7 +27,7 @@ namespace TaskManagement.Models
         [MaxLength(50)]
         public string Tag { get; set; } = string.Empty; // GNOS-20, Tagging
 
-        public bool IsFlagged { get; set; } 
+        public bool IsFlagged { get; set; } = false;
         
         [MaxLength(50)]  
         public string AssignedTo { get; set; } = string.Empty; // Assigned to user for collaboration
@@ -46,10 +46,14 @@ namespace TaskManagement.Models
         [ForeignKey("BoardId")]  
         public Board? Board { get; set; } 
         
+        [Required]
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        
         // Zaman Takibi
         public ICollection<TimeTracking> TimeTrackings { get; set; } = new List<TimeTracking>();
         
-        public ICollection<ApplicationUser> Collaborators { get; set; } = new List<ApplicationUser>();
+
+        
 
     }
 }

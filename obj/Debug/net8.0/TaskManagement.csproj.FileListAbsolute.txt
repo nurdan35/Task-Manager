@@ -184,3 +184,5 @@ C:\Users\nurda\TaskManagement\bin\Debug\net8.0\React.AspNet.dll
 C:\Users\nurda\TaskManagement\bin\Debug\net8.0\React.AspNet.Middleware.dll
 C:\Users\nurda\TaskManagement\bin\Debug\net8.0\React.Core.dll
 C:\Users\nurda\TaskManagement\bin\Debug\net8.0\ru-RU\JavaScriptEngineSwitcher.Core.resources.dll
+C:\Users\nurda\TaskManagement\bin\Debug\net8.0\BouncyCastle.Crypto.dll
+C:\Users\nurda\TaskManagement\bin\Debug\net8.0\WebPush.dll

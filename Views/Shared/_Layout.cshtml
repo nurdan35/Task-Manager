@@ -45,6 +45,9 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Notification" asp-action="Index">Notifications</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Friendship" asp-action="GetFriends">Friends</a>
+                    </li>
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
@@ -75,6 +78,9 @@
 
 <script src="~/js/site.js" asp-append-version="true"></script>
 <script src="~/js/board.js" asp-append-version="true"></script>
+<script src="~/js/friends.js" asp-append-version="true"></script>
+<script src="~/js/profile.js" asp-append-version="true"></script>
+<script src="~/js/push-subscription.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

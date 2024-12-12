@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using TaskManagement.Data;
 using TaskManagement.Models;
-
 
 namespace TaskManagement.Controllers
 {
@@ -22,18 +22,97 @@ namespace TaskManagement.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var userId = _userManager.GetUserId(User);
-            
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             if (string.IsNullOrEmpty(userId))
             {
-                return NotFound("User not found.");
+                Console.WriteLine("User ID is null or empty");
+                return Unauthorized("User not found.");
             }
 
-            var notifications = await _db.Notifications
-                .Where(n => n.UserId == userId)
-                .ToListAsync();
+            try
+            {
+                var notifications = await _db.Notifications
+                    .Where(n => n.UserId == userId)
+                    .OrderByDescending(n => n.NotificationDate)
+                    .ToListAsync();
+
+                return View(notifications);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching notifications: {ex.Message}");
+                return StatusCode(500, "An error occurred while fetching notifications.");
+            }
+        }
+
+        public async Task<IActionResult> MarkAsRead(int id)
+        {
+            var notification = await _db.Notifications.FindAsync(id);
+            if (notification == null)
+            {
+                return NotFound();
+            }
+
+            notification.IsRead = true;
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> NotificationSettings()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var viewModel = new NotificationSettingsViewModel
+            {
+                EmailNotificationsEnabled = user.IsEmailNotificationEnabled,
+                SmsNotificationsEnabled = user.IsSmsNotificationEnabled,
+                PushNotificationsEnabled = user.IsPushNotificationsEnabled
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> NotificationSettings(NotificationSettingsViewModel model)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound();
+            }
             
-            return View(notifications);
+            user.IsEmailNotificationEnabled = model.EmailNotificationsEnabled;
+            user.IsSmsNotificationEnabled = model.SmsNotificationsEnabled;
+            user.IsPushNotificationsEnabled = model.PushNotificationsEnabled;
+
+            var result = await _userManager.UpdateAsync(user);
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError("", "An error occurred while saving your settings.");
+                return View(model);
+            }
+
+            TempData["SuccessMessage"] = "Your settings have been saved.";
+            return RedirectToAction("NotificationSettings");
         }
     }
 }

@@ -50,8 +50,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/nurda/TaskManagement/Views/Board/SharedBoards.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9hcmRcU2hhcmVkQm9hcmRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/nurda/TaskManagement/Views/Calendar/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsZW5kYXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nurda/TaskManagement/Views/Friendship/GetFriends.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJpZW5kc2hpcFxHZXRGcmllbmRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nurda/TaskManagement/Views/Home/Index.cshtml]
@@ -66,16 +74,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpY2F0aW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/nurda/TaskManagement/Views/Notification/NotificationSettings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpY2F0aW9uXE5vdGlmaWNhdGlvblNldHRpbmdzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/nurda/TaskManagement/Views/Profile/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nurda/TaskManagement/Views/Profile/EditProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxFZGl0UHJvZmlsZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/nurda/TaskManagement/Views/Profile/NotificationSettings.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxOb3RpZmljYXRpb25TZXR0aW5ncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nurda/TaskManagement/Views/Shared/Error.cshtml]

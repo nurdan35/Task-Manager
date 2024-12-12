@@ -1,0 +1,31 @@
+@model TaskManagement.Models.NotificationSettingsViewModel
+
+<h2>Notification Settings</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<form asp-action="NotificationSettings" method="post">
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" asp-for="EmailNotificationsEnabled" />
+        <label class="form-check-label" asp-for="EmailNotificationsEnabled">Enable Email Notifications</label>
+    </div>
+
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" asp-for="SmsNotificationsEnabled" />
+        <label class="form-check-label" asp-for="SmsNotificationsEnabled">Enable SMS Notifications</label>
+    </div>
+
+    <div>
+        <input type="checkbox" asp-for="PushNotificationsEnabled" />
+        <label asp-for="PushNotificationsEnabled">Enable Push Notifications</label>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary mt-3">Save Settings</button>
+</form>
+<a class="btn btn-secondary" href="@Url.Action("Dashboard", "Profile")">Back to Dashboard</a>

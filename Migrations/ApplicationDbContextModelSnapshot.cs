@@ -17,21 +17,6 @@ namespace TaskManagement.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
 
-            modelBuilder.Entity("ApplicationUserBoard", b =>
-                {
-                    b.Property<int>("CollaboratingBoardsId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("CollaboratorsId")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("CollaboratingBoardsId", "CollaboratorsId");
-
-                    b.HasIndex("CollaboratorsId");
-
-                    b.ToTable("ApplicationUserBoard");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -107,9 +92,11 @@ namespace TaskManagement.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProviderKey")
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProviderDisplayName")
@@ -147,9 +134,11 @@ namespace TaskManagement.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LoginProvider")
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Value")
@@ -177,6 +166,15 @@ namespace TaskManagement.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsEmailNotificationEnabled")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsPushNotificationsEnabled")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsSmsNotificationEnabled")
                         .HasColumnType("INTEGER");
 
                     b.Property<bool>("LockoutEnabled")
@@ -211,11 +209,11 @@ namespace TaskManagement.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("SecurityStamp")
+                    b.Property<string>("ProfilePicturePath")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("TaskItemId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Theme")
                         .IsRequired()
@@ -237,8 +235,6 @@ namespace TaskManagement.Migrations
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
-
-                    b.HasIndex("TaskItemId");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -266,24 +262,78 @@ namespace TaskManagement.Migrations
                     b.ToTable("Boards");
                 });
 
+            modelBuilder.Entity("TaskManagement.Models.BoardShare", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("BoardId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("SharedWithUserEmail")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SharedWithUserId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BoardId");
+
+                    b.HasIndex("SharedWithUserId");
+
+                    b.ToTable("BoardShares");
+                });
+
+            modelBuilder.Entity("TaskManagement.Models.Friendship", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsAccepted")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ReceiverId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("RequesterId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReceiverId");
+
+                    b.HasIndex("RequesterId");
+
+                    b.ToTable("Friendships");
+                });
+
             modelBuilder.Entity("TaskManagement.Models.Notification", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("IsEmailNotification")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsSmsNotification")
+                    b.Property<bool>("IsRead")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Message")
                         .IsRequired()
+                        .HasMaxLength(500)
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("NotificationDate")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -314,6 +364,9 @@ namespace TaskManagement.Migrations
                     b.Property<string>("Category")
                         .IsRequired()
                         .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
@@ -393,19 +446,31 @@ namespace TaskManagement.Migrations
                     b.ToTable("TimeTracking");
                 });
 
-            modelBuilder.Entity("ApplicationUserBoard", b =>
+            modelBuilder.Entity("TaskManagement.Models.UserSubscription", b =>
                 {
-                    b.HasOne("TaskManagement.Models.Board", null)
-                        .WithMany()
-                        .HasForeignKey("CollaboratingBoardsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
-                    b.HasOne("TaskManagement.Models.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("CollaboratorsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<string>("Auth")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Endpoint")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("P256DH")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserSubscriptions");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -459,13 +524,6 @@ namespace TaskManagement.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TaskManagement.Models.ApplicationUser", b =>
-                {
-                    b.HasOne("TaskManagement.Models.TaskItem", null)
-                        .WithMany("Collaborators")
-                        .HasForeignKey("TaskItemId");
-                });
-
             modelBuilder.Entity("TaskManagement.Models.Board", b =>
                 {
                     b.HasOne("TaskManagement.Models.ApplicationUser", "User")
@@ -475,6 +533,43 @@ namespace TaskManagement.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TaskManagement.Models.BoardShare", b =>
+                {
+                    b.HasOne("TaskManagement.Models.Board", "Board")
+                        .WithMany("BoardShares")
+                        .HasForeignKey("BoardId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TaskManagement.Models.ApplicationUser", "SharedWithUser")
+                        .WithMany("SharedBoards")
+                        .HasForeignKey("SharedWithUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Board");
+
+                    b.Navigation("SharedWithUser");
+                });
+
+            modelBuilder.Entity("TaskManagement.Models.Friendship", b =>
+                {
+                    b.HasOne("TaskManagement.Models.ApplicationUser", "Receiver")
+                        .WithMany()
+                        .HasForeignKey("ReceiverId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TaskManagement.Models.ApplicationUser", "Requester")
+                        .WithMany()
+                        .HasForeignKey("RequesterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Receiver");
+
+                    b.Navigation("Requester");
                 });
 
             modelBuilder.Entity("TaskManagement.Models.Notification", b =>
@@ -531,18 +626,20 @@ namespace TaskManagement.Migrations
 
                     b.Navigation("Notifications");
 
+                    b.Navigation("SharedBoards");
+
                     b.Navigation("TaskItems");
                 });
 
             modelBuilder.Entity("TaskManagement.Models.Board", b =>
                 {
+                    b.Navigation("BoardShares");
+
                     b.Navigation("Tasks");
                 });
 
             modelBuilder.Entity("TaskManagement.Models.TaskItem", b =>
                 {
-                    b.Navigation("Collaborators");
-
                     b.Navigation("TimeTrackings");
                 });
 #pragma warning restore 612, 618

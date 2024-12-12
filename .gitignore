@@ -1,0 +1,29 @@
+# Visual Studio Cache ve Build Dosyaları
+.vs/
+.vscode/
+*.user
+*.suo
+*.log
+*.tmp
+
+# Bin ve Obj Klasörleri
+/bin/
+/obj/
+
+# Yaygın Geçici Dosyalar
+*.dll
+*.exe
+*.pdb
+*.cache
+
+# Log Dosyaları
+*.log
+
+# Ayar Dosyaları
+appsettings.json
+appsettings.Development.json
+
+# Paket Yönetimi
+node_modules/
+*.lock
+

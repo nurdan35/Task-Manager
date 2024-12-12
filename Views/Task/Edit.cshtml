@@ -43,6 +43,14 @@ ViewData["Title"] = "Edit Task";
     </div>
 
     <div class="form-group">
+        <label asp-for="BoardId" class="control-label">Select Board</label>
+        <select asp-for="BoardId" class="form-control" asp-items="@(ViewBag.Boards ?? new List<SelectListItem>())">
+            <option value="">Select Board</option>
+        </select>
+        <span asp-validation-for="BoardId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
         <label asp-for="Status">Status</label>
         <select asp-for="Status" class="form-control">
             <option value="todo">To Do</option>

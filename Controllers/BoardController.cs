@@ -29,10 +29,21 @@ namespace TaskManagement.Controllers
                 .Include(b => b.Tasks)
                 .ToListAsync();
 
+            // Kullanıcının paylaşılan boardlarını getir
+            var sharedBoards = await _db.BoardShares
+                .Where(bs => bs.SharedWithUserId == userId)
+                .Include(bs => bs.Board)
+                .ThenInclude(b => b.Tasks)
+                .Select(bs => bs.Board)
+                .Where(b => b != null)
+                .ToListAsync();
+            
+            
             var viewModel = new BoardViewModel
             {
                 Board = boards.FirstOrDefault(),
                 Boards = boards,
+                SharedBoards = sharedBoards.Where(sb => sb != null).ToList()!,
                 Tasks = boards.SelectMany(b => b.Tasks).ToList(),
                 CurrentUser = User.Identity?.Name ?? "Guest"
             };
@@ -46,8 +57,10 @@ namespace TaskManagement.Controllers
 
             var board = await _db.Boards
                 .Include(b => b.Tasks)
-                .Include(b => b.Collaborators)
-                .FirstOrDefaultAsync(b => b.Id == id && b.UserId == userId);
+                .Include(b => b.BoardShares)
+                .FirstOrDefaultAsync(b => b.Id == id 
+                                          && (b.UserId == userId || b.BoardShares.Any(bs => bs.SharedWithUserId == userId)));
+
 
             if (board == null)
             {
@@ -158,6 +171,77 @@ namespace TaskManagement.Controllers
 
             _db.Boards.Remove(board);
             await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ShareBoard(int boardId, string sharedWithUserId, string email)
+        {
+            var userId = _userManager.GetUserId(User);
+
+            // Board'un sahibi olup olmadığını kontrol edin
+            var board = await _db.Boards.FirstOrDefaultAsync(b => b.Id == boardId && b.UserId == userId);
+            if (board == null)
+                return Json(new { success = false, message ="Board not found or you do not have permission to share it." });
+
+            // Kullanıcıyı e-posta ile bulun
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return Json(new { success = false, message = "User not found." });
+            }
+
+            // Daha önce paylaşılmış mı kontrol edin
+            var existingShare = await _db.BoardShares
+                .FirstOrDefaultAsync(bs => bs.BoardId == boardId && bs.SharedWithUserId == sharedWithUserId);
+            if (existingShare != null)
+                return Json(new { success = false, message = "This board is already shared with this user." });
+
+            // Paylaşımı ekle
+            var boardShare = new BoardShare
+            {
+                BoardId = boardId,
+                SharedWithUserId = user.Id, // Paylaşılacak kişinin UserId'si
+                SharedWithUserEmail = user.Email // Alternatif olarak Email
+            };
+            _db.BoardShares.Add(boardShare);
+            await _db.SaveChangesAsync();
+
+            return Json(new { success = true, message = "Board shared successfully." });
+        }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteSharedBoard(int boardId)
+        {
+            Console.WriteLine($"DeleteSharedBoard: Received boardId: {boardId}");
+            
+            if (boardId <= 0)
+            {
+                return BadRequest("Invalid board ID.");
+            }
+            var userId = _userManager.GetUserId(User);
+            // Kontrol: Kullanıcı oturum açmış mı
+            if (userId == null)
+            {
+                return Unauthorized("You must be logged in to delete shared boards.");
+            }
+            // Paylaşılan board'u kontrol et
+            var boardShare = await _db.BoardShares
+                .FirstOrDefaultAsync(bs => bs.BoardId == boardId && bs.SharedWithUserId == userId);
+
+            if (boardShare == null)
+            {
+                Console.WriteLine($"DeleteSharedBoard: No matching record found for BoardId: {boardId}, SharedWithUserId: {userId}");
+                return NotFound("Shared board not found or you do not have permission to delete it.");
+            }
+
+            // Paylaşımı sil
+            _db.BoardShares.Remove(boardShare);
+            await _db.SaveChangesAsync();
+            
+            // Kullanıcıyı Index sayfasına yönlendir
             return RedirectToAction(nameof(Index));
         }
     }
