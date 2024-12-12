@@ -1,4 +1,17 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿document.addEventListener("DOMContentLoaded", function () {
+    var toggleButton = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    var mainContent = document.getElementById("mainContent");
 
-// Write your JavaScript code.
+
+    console.log(toggleButton, sidebar, mainContent);
+
+    if (toggleButton && sidebar && mainContent) {
+        toggleButton.addEventListener("click", function () {
+            sidebar.classList.toggle("active");
+            mainContent.classList.toggle("sidebar-open");
+        });
+    } else {
+        console.error("HTML öğeleri bulunamadı!");
+    }
+});

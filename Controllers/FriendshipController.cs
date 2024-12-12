@@ -24,6 +24,7 @@ namespace TaskManagement.Controllers
         public async Task<IActionResult> GetFriends()
         {
             var userId = _userManager.GetUserId(User);
+
             // Get accepted friends
             var friends = await _db.Friendships
                 .Where(f => (f.RequesterId == userId || f.ReceiverId == userId) && f.IsAccepted)
@@ -34,6 +35,7 @@ namespace TaskManagement.Controllers
                     DisplayName = string.IsNullOrEmpty(user.Nickname) ? user.UserName : user.Nickname
                 })
                 .ToListAsync();
+
             // Get pending friend requests
             var friendRequests = await _db.Friendships
                 .Where(f => f.ReceiverId == userId && !f.IsAccepted)
@@ -41,17 +43,17 @@ namespace TaskManagement.Controllers
                 {
                     RequestId = f.Id,
                     RequesterId = f.RequesterId,
-                    RequesterDisplayName = !string.IsNullOrEmpty(f.Requester.Nickname)
-                        ? f.Requester.Nickname
-                        : f.Requester.UserName,
+                    RequesterDisplayName = !string.IsNullOrEmpty(f.Requester.Nickname) ? f.Requester.Nickname : f.Requester.UserName,
                     RequesterEmail = f.Requester.Email
                 })
                 .ToListAsync();
+            
             var viewModel = new FriendsViewModel
             {
                 Friends = friends,
                 FriendRequests = friendRequests
             };
+
             return View(viewModel);
         }
 
@@ -69,9 +71,9 @@ namespace TaskManagement.Controllers
             {
                 return Json(new { success = false, message = "You cannot send a friend request to yourself." });
             }
+            
+            var receiver = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == receiverId || u.Email == receiverId);
 
-            var receiver =
-                await _userManager.Users.FirstOrDefaultAsync(u => u.Id == receiverId || u.Email == receiverId);
             if (receiver == null)
             {
                 return Json(new { success = false, message = "The specified user does not exist." });
@@ -84,8 +86,7 @@ namespace TaskManagement.Controllers
 
             if (existingFriendship != null)
             {
-                return Json(new
-                    { success = false, message = "A friend request already exists or you are already friends." });
+                return Json(new { success = false, message = "A friend request already exists or you are already friends." });
             }
 
             var friendship = new Friendship
@@ -98,6 +99,7 @@ namespace TaskManagement.Controllers
 
             _db.Friendships.Add(friendship);
             await _db.SaveChangesAsync();
+
             return Json(new { success = true, message = "Friend request sent successfully." });
         }
 
@@ -133,6 +135,7 @@ namespace TaskManagement.Controllers
 
             _db.Friendships.Remove(friendship);
             await _db.SaveChangesAsync();
+
             return RedirectToAction("GetFriends");
         }
 
@@ -152,6 +155,7 @@ namespace TaskManagement.Controllers
 
             _db.Friendships.Remove(friendship);
             await _db.SaveChangesAsync();
+
             return RedirectToAction("GetFriends");
         }
     }

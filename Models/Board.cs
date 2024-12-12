@@ -18,7 +18,7 @@ namespace TaskManagement.Models
 
         public ICollection<TaskItem> Tasks { get; set; } = new List<TaskItem>();
         
+        // BoardShare ilişkisi
         public ICollection<BoardShare> BoardShares { get; set; } = new List<BoardShare>();
-        
     }
 }

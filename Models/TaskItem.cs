@@ -51,9 +51,5 @@ namespace TaskManagement.Models
         
         // Zaman Takibi
         public ICollection<TimeTracking> TimeTrackings { get; set; } = new List<TimeTracking>();
-        
-
-        
-
     }
 }

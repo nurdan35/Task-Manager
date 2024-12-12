@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
-
 namespace TaskManagement.Models
 {
     public class ApplicationUser : IdentityUser
@@ -26,7 +25,7 @@ namespace TaskManagement.Models
         public bool IsEmailNotificationEnabled { get; set; } = false;
         public bool IsSmsNotificationEnabled { get; set; } = false;
         public bool IsPushNotificationsEnabled { get; set; } = false; // Default
-
+        
         public ICollection<BoardShare> SharedBoards { get; set; } = new List<BoardShare>();
     }
 }

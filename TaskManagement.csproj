@@ -32,12 +32,9 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\profiles\" />
+    <Watch Include="wwwroot\**\*" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\images\profiles\" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Views\Account\Login.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Account\Register.cshtml" />

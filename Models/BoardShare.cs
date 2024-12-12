@@ -9,9 +9,7 @@ namespace TaskManagement.Models
         [ForeignKey("Board")]
         public int BoardId { get; set; }
         public Board? Board { get; set; }
-
-
-
+        
         [ForeignKey("SharedWithUser")]
         public string? SharedWithUserId { get; set; }
         public string?  SharedWithUserEmail { get; set; }
