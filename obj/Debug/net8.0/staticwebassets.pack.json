@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\board.css"
     },
     {
+      "Id": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\css\\mainstyle.css",
+      "PackagePath": "staticwebassets\\css\\mainstyle.css"
+    },
+    {
       "Id": "C:\\Users\\nurda\\TaskManagement\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
