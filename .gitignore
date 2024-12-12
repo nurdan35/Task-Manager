@@ -1,1 +1,4 @@
-obj/Debug/
+/bin/
+/obj/
+*.cache
+*.dll
