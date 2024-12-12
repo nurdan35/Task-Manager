@@ -1,27 +1,49 @@
 @model List<TaskManagement.Models.TaskItem>
 
-<h2>Tasks</h2>
+<div class="tasks-page">
+    <div class="header-section">
+        <h1>Your Tasks</h1>
+        <p>Manage and organize your tasks effortlessly!</p>
+        <a asp-action="Create" asp-controller="Task" asp-route-boardId="@ViewBag.BoardId" class="btn btn-primary create-task-btn">Create New Task</a>
+    </div>
 
-<a asp-action="Create" asp-controller="Task" asp-route-boardId="@ViewBag.BoardId" class="btn btn-success mb-3">Create New Task</a>
-<ul>
+    <!-- Søkefelt -->
+    <div class="search-bar-container">
+        <input type="text" id="taskSearchInput" placeholder="Search tasks by title, description or date (YYYY-MM-DD)..." class="form-control search-bar" />
+    </div>
+
+    <!-- Container for filtrerte resultater -->
+    <div class="task-list-container" id="taskListContainer">
     @if (Model == null || !Model.Any())
     {
-        <p>No tasks available for this user.</p>
+        <div class="no-tasks">
+            <p>No tasks available for this user.</p>
+        </div>
     }
     else
     {
-        @foreach (var task in Model)
-        {
-            <li>
-                <strong>@task.Title:</strong> @task.Description <br/>
-                Status: <span class="badge badge-@GetStatusClass(task.Status)">@task.Status</span> |
-                Due Date: @task.DueDate.ToString("yyyy-MM-dd") <br/>
-                <a asp-action="Edit" asp-route-id="@task.Id" class="btn btn-sm btn-primary">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@task.Id" class="btn btn-sm btn-danger">Delete</a>
-            </li>
-        }
+        <ul class="tasks-list">
+            @foreach (var task in Model)
+            {
+                <li class="task-item">
+                    <div class="task-details">
+                        <h3>@task.Title</h3>
+                        <p>@task.Description</p>
+                        <div class="task-meta">
+                            <span class="badge badge-@GetStatusClass(task.Status)">@task.Status</span> |
+                            <span>Due Date: @task.DueDate.ToString("yyyy-MM-dd")</span>
+                        </div>
+                    </div>
+                    <div class="task-actions">
+                        <a asp-action="Edit" asp-route-id="@task.Id" class="btn btn-sm btn-primary">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@task.Id" class="btn btn-sm btn-pink">Delete</a>
+                    </div>
+                </li>
+            }
+        </ul>
     }
-</ul>
+    </div>
+</div>
 
 @functions {
     private string GetStatusClass(string status)
@@ -34,4 +56,78 @@
             _ => "light"
         };
     }
+}
+
+@section Scripts {
+    <script>
+        // Denne funksjonen henter status-klasse for å matche det vi gjør i Razor-koden
+        function getStatusClass(status) {
+            switch (status) {
+                case 'todo': return 'secondary';
+                case 'doing': return 'warning';
+                case 'done': return 'success';
+                default: return 'light';
+            }
+        }
+
+        const searchInput = document.getElementById('taskSearchInput');
+        const taskListContainer = document.getElementById('taskListContainer');
+
+        // Legg til en "debounce" for å unngå for mange kall ved rask skriving
+        let debounceTimer;
+        searchInput.addEventListener('keyup', function () {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                performSearch(searchInput.value);
+            }, 300); // venter 300ms etter siste tastetrykk
+        });
+
+        function performSearch(query) {
+            // Henter URL fra server (juster om nødvendig)
+            // Husk å legge til riktig controller-navn hvis du ikke bruker default konvensjon
+            const url = '@Url.Action("SearchTasks", "Task")?query=' + encodeURIComponent(query);
+
+            fetch(url, {
+                headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Fjern gammel liste
+                taskListContainer.innerHTML = '';
+
+                if (data.length === 0) {
+                    taskListContainer.innerHTML = '<div class="no-tasks"><p>No matching tasks.</p></div>';
+                } else {
+                    const ul = document.createElement('ul');
+                    ul.classList.add('tasks-list');
+
+                    data.forEach(task => {
+                        const li = document.createElement('li');
+                        li.classList.add('task-item');
+
+                        li.innerHTML = `
+                            <div class="task-details">
+                                <h3>${task.title}</h3>
+                                <p>${task.description}</p>
+                                <div class="task-meta">
+                                    <span class="badge badge-${getStatusClass(task.status)}">${task.status}</span> |
+                                    <span>Due Date: ${task.dueDate.split('T')[0]}</span>
+                                </div>
+                            </div>
+                            <div class="task-actions">
+                                <a href="/Task/Edit/${task.id}" class="btn btn-sm btn-primary">Edit</a> |
+                                <a href="/Task/Delete/${task.id}" class="btn btn-sm btn-pink">Delete</a>
+                            </div>
+                        `;
+                        ul.appendChild(li);
+                    });
+
+                    taskListContainer.appendChild(ul);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching search results:', error);
+            });
+        }
+    </script>
 }

@@ -1,68 +1,62 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="csrf-token" content="@ViewData["RequestVerificationToken"]">
     <title>@ViewData["Title"] - TaskManagement</title>
-
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/board.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/TaskManagement.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/mainstyle.css" asp-append-version="true" />
-
+    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/board.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/task.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/mainstyle.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/TaskManagement.styles.css" asp-append-version="true"/>
 </head>
 <body>
 <header>
-    <!-- Top Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light border-bottom">
-        <div class="container-fluid">
-            <!-- Brand -->
-            <a class="navbar-brand ms-2" asp-area="" asp-controller="Profile" asp-action="Dashboard">Zentask</a>
-
-            <!-- Hamburger Button -->
-            <button class="navbar-toggler d-block" type="button" id="sidebarToggle" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Register & Login Links -->
-            <div class="ms-auto">
-                <partial name="_LoginPartial" />
+    @if (User.Identity.IsAuthenticated)
+    {
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TaskManagement</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Profile" asp-action="Dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Board" asp-action="Index">Boards</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="Index">Tasks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Calendar" asp-action="Index">Calendar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Notification" asp-action="Index">Notifications</a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial"/>
+                </div>
             </div>
-        </div>
-    </nav>
-
-    <!-- Sidebar -->
-    <div id="sidebar">
-        <div class="sidebar-header p-3 border-bottom">
-            <h5>Menu</h5>
-        </div>
-        <ul class="nav flex-column p-3">
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Profile" asp-action="Dashboard">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Board" asp-action="Index">Boards</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Task" asp-action="Index">Tasks</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Calendar" asp-action="Index">Calendar</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Notification" asp-action="Index">Notifications</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-controller="Friendship" asp-action="GetFriends">Friends</a>
-            </li>
-        </ul>
-    </div>
+        </nav>
+    }
+    
 </header>
-
 <div class="container" id="mainContent">
     <main role="main" class="pb-3">
         @RenderBody()

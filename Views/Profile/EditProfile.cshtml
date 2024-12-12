@@ -4,24 +4,28 @@
 ViewData["Title"] = "Edit Profile";
 }
 
-<h2>Edit Profile</h2>
+<div class="background">
+    <div class="profile-edit-page">
+        <h2 class="page-title">Manage your account</h2>
+        <p class="page-subtitle">Change your account settings</p>
 
-<form asp-action="EditProfile" method="post" enctype="multipart/form-data">
-    <div class="form-group">
-        <label asp-for="Nickname"></label>
-        <input asp-for="Nickname" class="form-control" />
-        <span asp-validation-for="Nickname" class="text-danger"></span>
-    </div>
+        <div class="form-container">
+            <form asp-action="EditProfile" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Nickname"></label>
+                    <input asp-for="Nickname" class="form-control" />
+                    <span asp-validation-for="Nickname" class="validation-error"></span>
+                </div>
 
-    <div class="form-group">
-        <label asp-for="Theme">Choose Theme</label>
-        <select asp-for="Theme" class="form-control">
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-            <option value="cute">Cute</option>
-        </select>
-        <span asp-validation-for="Theme" class="text-danger"></span>
-    </div>
+                <div class="form-group">
+                    <label asp-for="Theme">Choose Theme</label>
+                    <select asp-for="Theme" class="form-control">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="cute">Cute</option>
+                    </select>
+                    <span asp-validation-for="Theme" class="validation-error"></span>
+                </div>
     
     <div class="form-group">
         <label>Change profile picture:</label>
@@ -57,15 +61,19 @@ ViewData["Title"] = "Edit Profile";
                  style="width: 75px; height: 75px; margin: 5px; cursor: pointer; border-radius: 50%; border: 2px solid transparent;" />
         </div>
     </div>
-
-    <div class="form-group">
+                
+                <div class="form-group">
         <label for="ProfileImage">Upload your own profile picture: </label>
         <input type="file" class="form-control-file" id="ProfileImage" name="ProfileImage" />
     </div>
     
     <input type="hidden" id="SelectedProfilePicture" name="SelectedProfilePicture" value="@Model.ProfilePicturePath" />
-    
-    <button type="submit" class="btn btn-primary">Save Changes</button>
+
+            <button type="submit" class="btn btn-pink">Save Changes</button>
 </form>
 
-<a class="btn btn-secondary" asp-action="Dashboard">Back to Dashboard</a>
+            <a class="btn btn-secondary" asp-action="Dashboard">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+
