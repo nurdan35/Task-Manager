@@ -9,35 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bb80574-50cd-4eab-8dd8-f933625cfbc8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/dataSources/e3869bc6-0392-45bb-9fae-12ba600ab14a.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/dataSources/e3869bc6-0392-45bb-9fae-12ba600ab14a/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Task-Manager.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/BoardController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/BoardController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaskManagement.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TaskManagement.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Board/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Board/Details.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Board/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Board/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Friendship/GetFriends.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Friendship/GetFriends.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Profile/Dashboard.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Profile/Dashboard.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Shared/_LoginPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_LoginPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/TaskManagement.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/TaskManagement.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/TaskManagement.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/TaskManagement.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/app.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/TaskManagement.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/ref/TaskManagement.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/ref/TaskManagement.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/refint/TaskManagement.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/refint/TaskManagement.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/scopedcss/bundle/TaskManagement.styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/scopedcss/bundle/TaskManagement.styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/scopedcss/projectbundle/TaskManagement.bundle.scp.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/scopedcss/projectbundle/TaskManagement.bundle.scp.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/css/site.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/site.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Folder.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Folder.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,13 +48,30 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a0741529c8554d199992ef9e50684668d82800/b5/017fef10/ICollection`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/metadata/ab2d7729b52f407b8cf58869d56ee89d8ab0/4e/2203edaa/Microsoft.Extensions.FileProviders.Embedded.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/BoardController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Controllers/FriendshipController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Data/ApplicationDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/ApplicationUser.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Board.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/BoardShare.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/BoardViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/TaskItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Board/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Board/SharedBoards.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Friendship/GetFriends.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Profile/Dashboard.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Shared/_LoginPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/package-lock.json" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -91,24 +85,19 @@
     ".NET Launch Settings Profile.TaskManagement: http.executor": "Run",
     ".NET Launch Settings Profile.TaskManagement: https.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Omer",
+    "git-widget-placeholder": "hamburgermenu__og__Dashboard",
+    "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "C:/Users/gunil/AppData/Roaming/JetBrains/Rider2024.2/node/versions/22.12.0/node",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "settings.nodejs",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/Users/omer/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache",
-      "/Users/omer/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache",
-      "/Users/omer/Library/Application Support/Symbols/src"
-    ]
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.TaskManagement: https">
+  <component name="RunManager" selected=".NET Launch Settings Profile.TaskManagement: http">
     <configuration name="TaskManagement: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/TaskManagement.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -164,6 +153,8 @@
       <workItem from="1733645838327" duration="1948000" />
       <workItem from="1733791247400" duration="5335000" />
       <workItem from="1733817775012" duration="53978000" />
+      <workItem from="1734003154307" duration="219000" />
+      <workItem from="1734003388878" duration="12151000" />
     </task>
     <servers />
   </component>
@@ -172,6 +163,7 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
