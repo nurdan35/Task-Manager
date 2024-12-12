@@ -28,7 +28,7 @@ namespace TaskManagement.Controllers
                 .Where(b => b.UserId == userId)
                 .Include(b => b.Tasks)
                 .ToListAsync();
-
+            
             // Kullanıcının paylaşılan boardlarını getir
             var sharedBoards = await _db.BoardShares
                 .Where(bs => bs.SharedWithUserId == userId)
@@ -37,7 +37,6 @@ namespace TaskManagement.Controllers
                 .Select(bs => bs.Board)
                 .Where(b => b != null)
                 .ToListAsync();
-            
             
             var viewModel = new BoardViewModel
             {
@@ -60,7 +59,6 @@ namespace TaskManagement.Controllers
                 .Include(b => b.BoardShares)
                 .FirstOrDefaultAsync(b => b.Id == id 
                                           && (b.UserId == userId || b.BoardShares.Any(bs => bs.SharedWithUserId == userId)));
-
 
             if (board == null)
             {
@@ -208,7 +206,7 @@ namespace TaskManagement.Controllers
             _db.BoardShares.Add(boardShare);
             await _db.SaveChangesAsync();
 
-            return Json(new { success = true, message = "Board shared successfully." });
+            return Json(new { success = true, message = "Board shared successfully." });
         }
         
         [HttpPost]
@@ -222,11 +220,13 @@ namespace TaskManagement.Controllers
                 return BadRequest("Invalid board ID.");
             }
             var userId = _userManager.GetUserId(User);
+
             // Kontrol: Kullanıcı oturum açmış mı
             if (userId == null)
             {
                 return Unauthorized("You must be logged in to delete shared boards.");
             }
+
             // Paylaşılan board'u kontrol et
             var boardShare = await _db.BoardShares
                 .FirstOrDefaultAsync(bs => bs.BoardId == boardId && bs.SharedWithUserId == userId);

@@ -10,6 +10,8 @@
 <a asp-action="Create" asp-controller="Board" class="btn btn-primary mb-3">Create New Board</a>
 
 <div class="clearfix d-flex justify-content-around">
+
+    <!-- Your Boards Section -->
     <div class="sidebar">
         <h2>Your Boards</h2>
         @if (Model.Boards == null || !Model.Boards.Any())
@@ -33,31 +35,31 @@
             </ul>
         }
     </div>
-    
+
     <!-- Shared Boards Section -->
     <div class="sidebar">
         <h2>Boards Shared With You</h2>
         @if (Model.SharedBoards == null || !Model.SharedBoards.Any())
         {
-        <p>No boards shared with you.</p>
+            <p>No boards shared with you.</p>
         }
         else
         {
-        <ul>
-            @foreach (var sharedBoard in Model.SharedBoards)
-            {
-            <li>
-                <strong>@sharedBoard.Title</strong>
-                <div class="board-actions">
-                    <a asp-action="Details" asp-route-id="@sharedBoard.Id" class="btn btn-sm btn-info">View</a>
-                    <form method="post" asp-action="DeleteSharedBoard">
-                        <input type="hidden" name="boardId" value="@sharedBoard.Id" />
-                        <button type="submit" class="btn btn-danger">Remove</button>
-                    </form>
-                </div>
-            </li>
-            }
-        </ul>
+            <ul>
+                @foreach (var sharedBoard in Model.SharedBoards)
+                {
+                    <li>
+                        <strong>@sharedBoard.Title</strong>
+                        <div class="board-actions">
+                            <a asp-action="Details" asp-route-id="@sharedBoard.Id" class="btn btn-sm btn-info">View</a>
+                            <form method="post" asp-action="DeleteSharedBoard">
+                                <input type="hidden" name="boardId" value="@sharedBoard.Id" />
+                                <button type="submit" class="btn btn-danger">Remove</button>
+                            </form>
+                        </div>
+                    </li>
+                }
+            </ul>
         }
     </div>
 </div>

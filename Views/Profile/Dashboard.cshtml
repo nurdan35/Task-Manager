@@ -5,43 +5,39 @@ ViewData["Title"] = "Dashboard";
 }
 
 <h2>Welcome, @Model.Nickname!</h2>
-
-
-<div class="profile-section">
-    <div class="row">
-        <div class="col order-first">
-            <h3>Your Profile:</h3>
-            <p><strong>Nickname:</strong> @Model.Nickname</p>
-            <p><strong>Email:</strong> @Model.Email</p>
-            <p><strong>Theme:</strong> @Model.Theme</p>
-            <a class="btn btn-secondary" asp-action="EditProfile">Edit Profile</a>
-        </div>
-        <div class="col order-last">
-            @if (!string.IsNullOrEmpty(Model.ProfilePicturePath))
-            {
-            <img src="@Model.ProfilePicturePath" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%;"/>
-            }
-            else
-            {
-                <img src="/images/profileExamples/profile2.jpeg" alt="Default Profile Picture" 
-                     style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;"/>
-            }
+<div id="mainContent" class="content">
+    <div class="profile-section">
+        <div class="row">
+            <div class="col order-last">
+                @if (!string.IsNullOrEmpty(Model.ProfilePicturePath))
+                {
+                <img src="@Model.ProfilePicturePath" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%;"/>
+                }
+                else
+                {
+                <img src="/images/default-profile.jpg" alt="Default Profile Picture" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;"/>
+                }
+            </div>
         </div>
     </div>
-</div>
+    
+    <div class="dashboard-container">
+        <div class="dashboard-box">
+            <a href="/Profile/EditProfile" class="dashboard-link">Manage Profile</a>
+        </div>
+        <div class="dashboard-box">
+            <a href="/Board/Index" class="dashboard-link">Boards</a>
+        </div>
+        <div class="dashboard-box">
+            <a href="/Calendar" class="dashboard-link">Calendar</a>
+        </div>
+        <div class="dashboard-box">
+            <a href="/Friendship/GetFriends" class="dashboard-link">Friends</a>
+        </div>
+        <div class="dashboard-box">
+            <a href="/Notification" class="dashboard-link">Notifications</a>
+        </div>
+        
+    </div>
+</div>    
 
-<hr />
-
-<div class="task-section">
-    <h3>Your Task Board</h3>
-    <p>Manage and track your tasks.</p>
-    <a class="btn btn-primary" asp-action="Index" asp-controller="Board">Go to Task Board</a>
-</div>
-
-<hr />
-
-<div class="notification-section">
-    <h3>Notification Settings</h3>
-    <p>Manage your notification preferences for tasks.</p>
-    <a class="btn btn-info" asp-action="NotificationSettings" asp-controller="Notification">Edit Notification Settings</a>
-</div>
