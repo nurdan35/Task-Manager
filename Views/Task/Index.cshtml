@@ -6,7 +6,7 @@
 <ul>
     @if (Model == null || !Model.Any())
     {
-    <p>No tasks available for this user.</p>
+        <p>No tasks available for this user.</p>
     }
     else
     {
@@ -21,17 +21,17 @@
             </li>
         }
     }
-    </ul>
+</ul>
 
 @functions {
-     private string GetStatusClass(string status)
-{
-return status switch
-{
-"todo" => "secondary",
-"doing" => "warning",
-"done" => "success",
-_ => "light"
-};
-}
+    private string GetStatusClass(string status)
+    {
+        return status switch
+        {
+            "todo" => "secondary",
+            "doing" => "warning",
+            "done" => "success",
+            _ => "light"
+        };
+    }
 }
