@@ -3,10 +3,9 @@
 @{
     ViewData["Title"] = Model.Title;
 }
-
-<h2>@Model.Title</h2>
-
-<a asp-action="Create" asp-controller="Task" asp-route-boardId="@Model.Id" class="btn btn-success mb-3">Create New Task</a>
+<div class="background">
+    <h2 class="page-title">@Model.Title</h2>
+    <a asp-action="Create" asp-controller="Task" asp-route-boardId="@Model.Id" class="btn create-task-btn">Create New Task</a>
 
 <div class="board">
     <!-- To Do Column -->
@@ -100,3 +99,4 @@
     <script src="~/js/friends.js"></script>
     <link rel="stylesheet" href="~/css/board.css"/>
 }
+</div>

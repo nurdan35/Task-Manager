@@ -4,61 +4,70 @@
     ViewData["Title"] = "Boards";
 }
 
-<h2 class="text-center">@ViewData["Title"]</h2>
-
-<!-- Create New Board Button -->
-<a asp-action="Create" asp-controller="Board" class="btn btn-primary mb-3">Create New Board</a>
-
-<div class="clearfix d-flex justify-content-around">
-    <div class="sidebar">
-        <h2>Your Boards</h2>
-        @if (Model.Boards == null || !Model.Boards.Any())
-        {
-            <p>No boards available for this user.</p>
-        }
-        else
-        {
-            <ul>
-                @foreach (var board in Model.Boards)
-                {
-                    <li>
-                        <strong>@board.Title</strong>
-                        <div class="board-actions">
-                            <a asp-action="Details" asp-route-id="@board.Id" class="btn btn-sm btn-info">View</a>
-                            <a asp-action="Edit" asp-route-id="@board.Id" class="btn btn-sm btn-primary">Edit</a>
-                            <a asp-action="Delete" asp-route-id="@board.Id" class="btn btn-sm btn-danger">Delete</a>
-                        </div>
-                    </li>
-                }
-            </ul>
-        }
+<div class="boards-page">
+    <div class="header-section">
+        <h1 class="page-title">@ViewData["Title"]</h1>
+        <p class="page-subtitle">Manage your boards effortlessly. View, edit and create new boards to organize your tasks!</p>
+        <a asp-action="Create" asp-controller="Board" class="btn btn-primary create-board-btn">Create New Board</a>
     </div>
+
+    <div class="boards-container">
+        <!-- Create New Board Button -->
+        <a asp-action="Create" asp-controller="Board" class="btn btn-primary mb-3">Create New Board</a>
+
+        <div class="clearfix d-flex justify-content-around">
+            <div class="sidebar">
+                <p class="board-header">Your Boards</p>
+
+                @if (Model.Boards == null || !Model.Boards.Any())
+                {
+                    <p class="no-boards">No boards available for this user.</p>
+                }
+                else
+                {
+                    <ul>
+                        @foreach (var board in Model.Boards)
+                        {
+                            <li>
+                                <strong>@board.Title</strong>
+                                <div class="board-actions">
+                                    <a asp-action="Details" asp-route-id="@board.Id" class="btn btn-sm btn-info">View</a>
+                                    <a asp-action="Edit" asp-route-id="@board.Id" class="btn btn-sm btn-primary">Edit</a>
+                                    <a asp-action="Delete" asp-route-id="@board.Id" class="btn btn-sm btn-danger">Delete</a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
     
-    <!-- Shared Boards Section -->
-    <div class="sidebar">
-        <h2>Boards Shared With You</h2>
-        @if (Model.SharedBoards == null || !Model.SharedBoards.Any())
-        {
-        <p>No boards shared with you.</p>
-        }
-        else
-        {
-        <ul>
-            @foreach (var sharedBoard in Model.SharedBoards)
-            {
-            <li>
-                <strong>@sharedBoard.Title</strong>
-                <div class="board-actions">
-                    <a asp-action="Details" asp-route-id="@sharedBoard.Id" class="btn btn-sm btn-info">View</a>
-                    <form method="post" asp-action="DeleteSharedBoard">
-                        <input type="hidden" name="boardId" value="@sharedBoard.Id" />
-                        <button type="submit" class="btn btn-danger">Remove</button>
-                    </form>
-                </div>
-            </li>
-            }
-        </ul>
-        }
+            <!-- Shared Boards Section -->
+            <div class="sidebar">
+                <h2>Boards Shared With You</h2>
+                @if (Model.SharedBoards == null || !Model.SharedBoards.Any())
+                {
+                    <p>No boards shared with you.</p>
+                }
+                else
+                {
+                    <ul>
+                        @foreach (var sharedBoard in Model.SharedBoards)
+                        {
+                            <li>
+                                <strong>@sharedBoard.Title</strong>
+                                <div class="board-actions">
+                                    <a asp-action="Details" asp-route-id="@sharedBoard.Id" class="btn btn-sm btn-info">View</a>
+                                    <form method="post" asp-action="DeleteSharedBoard">
+                                        <input type="hidden" name="boardId" value="@sharedBoard.Id" />
+                                        <button type="submit" class="btn btn-danger">Remove</button>
+                                    </form>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
     </div>
 </div>
 
