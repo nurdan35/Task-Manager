@@ -46,19 +46,19 @@ namespace TaskManagement.Data
             var user = new ApplicationUser
             {
                 Nickname = "NormalUser",
-                UserName = "user@taskmanager.com",
-                Email = "user@taskmanager.com",
+                UserName = "u@uia.no",
+                Email = "u@uia.no",
                 EmailConfirmed = true
             };
             if (await um.FindByNameAsync(user.UserName) == null)
             {
-                var result = await um.CreateAsync(user, "UserPassword1!");
+                var result = await um.CreateAsync(user, "Passord!1");
                 if (result.Succeeded)
                 {
                     await um.AddToRoleAsync(user, "User");
                 }
             }
-
+            
             // Add sample boards
             if (!db.Boards.Any())
             {

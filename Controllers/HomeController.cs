@@ -15,6 +15,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewData["SidebarEnabled"] = false; // Disable sidebar for the Home Page
         return View();
     }
 

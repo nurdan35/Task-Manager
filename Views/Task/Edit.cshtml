@@ -4,42 +4,42 @@
 ViewData["Title"] = "Edit Task";
 }
 
-<div class="background">
+<div class="background2">
     <div class="create-task">
-        <div class="section-task task-header">
+        <div class="section-task ">
             <h1>@ViewData["Title"]</h1>
             <p>Update task details to ensure accurate tracking and management of your goals.</p>
         </div>
         
-        <div class="form-container task-form-container">
+        <div class="container-md mt-3">
         <form asp-action="Edit" method="post">
             <input type="hidden" asp-for="Id" />
     
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <label asp-for="Title" class="form-label"></label>
                 <input asp-for="Title" class="form-control"/>
                 <span asp-validation-for="Title" class="validation-error"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <label asp-for="Description" class="form-label"></label>
                 <textarea asp-for="Description" class="form-control"></textarea>
                 <span asp-validation-for="Description" class="validation-error"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <label asp-for="DueDate" class="form-label"></label>
                 <input asp-for="DueDate" type="date" class="form-control"/>
                 <span asp-validation-for="DueDate" class="validation-error"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <label asp-for="Tag" class="form-label"></label>
                 <input asp-for="Tag" class="form-control"/>
                 <span asp-validation-for="Tag" class="validation-error"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group mb-2 ">
                 <label asp-for="Priority" class="form-label"></label>
                 <select asp-for="Priority" class="form-control">
                     <option value="Low">Low</option>
@@ -49,7 +49,7 @@ ViewData["Title"] = "Edit Task";
                 <span asp-validation-for="Priority" class="validation-error"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <label asp-for="BoardId" class="control-label">Select Board</label>
                 <select asp-for="BoardId" class="form-control" asp-items="@(ViewBag.Boards ?? new List<SelectListItem>())">
                     <option value="">Select Board</option>
@@ -58,7 +58,7 @@ ViewData["Title"] = "Edit Task";
             </div>
 
 
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <label asp-for="Status" class="form-label">Status</label>
                 <select asp-for="Status" class="form-control">
                     <option value="todo">To Do</option>

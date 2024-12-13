@@ -4,6 +4,7 @@
     <div class="header-section">
         <h1>Your Tasks</h1>
         <p>Manage and organize your tasks effortlessly!</p>
+        <a asp-action="Dashboard" asp-controller="Profile" class="btn btn-secondary">Back to Dashboard</a>
         <a asp-action="Create" asp-controller="Task" asp-route-boardId="@ViewBag.BoardId" class="btn btn-primary create-task-btn">Create New Task</a>
     </div>
 

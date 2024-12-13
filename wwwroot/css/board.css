@@ -47,3 +47,23 @@
     color: gray;
     border: 2px dashed lightgray;
 }
+
+
+
+/*--------Boards styles----------*/
+
+.board {
+    display: flex; /* Ensures the columns are laid out horizontally */
+    gap: 20px; /* Adds spacing between the columns */
+    margin-top: 20px;
+}
+
+.column {
+    flex: 1; /* Ensures each column takes up equal space */
+    background-color: #f9f9f9; /* Optional: Background color for the columns */
+    border-radius: 10px; /* Optional: Rounds the corners */
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    min-height: 300px; /* Optional: Ensures columns have some height even if empty */
+}
+

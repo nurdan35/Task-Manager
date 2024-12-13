@@ -13,7 +13,7 @@ namespace TaskManagement.Models
         public string? ProfileImage { get; set; } // GNOS-13: Profil resmi
         
         [MaxLength(20)]
-        public string Theme { get; set; } = "light"; // Default theme is 'light' // GNOS-14: Tema değiştirme
+        public string? Theme { get; set; } = "light"; // Default theme is 'light' // GNOS-14: Tema değiştirme
         
         public string? ProfilePicturePath { get; set; } // Path to profile picture
         

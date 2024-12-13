@@ -42,6 +42,12 @@
     background-color: #f2d9d0;
     color: #ffffff;
 }
+
+.btn-darkpink {
+    background-color: #d6b8b1;
+    color: #ffffff;
+}
+
 .btn-pink:hover {
     background-color: #e2c5bb;
 }
@@ -57,12 +63,14 @@
 .hero {
     display: flex;
     justify-content: space-between;
-    
+    height: 100%;
     min-height: 100vh;
-    background: linear-gradient(to bottom, #d6b8b1, #ffe6e1 80%, #ffffff);
-    padding: 30px;
+    width: 100%;
+    padding: 40px;
     box-sizing: border-box;
     align-items: flex-start;
+    background: none;
+    margin-top: 100px;
 }
 
 /* Tekst på venstre side */
@@ -84,6 +92,7 @@
     line-height: 1.4; /* Mindre linjehøyde */
     margin-bottom: 10px; /* Stram opp mellomrommet under */
     max-width: 600px; /* Begrens bredde */
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .hero-section p {
@@ -94,6 +103,7 @@
     line-height: 1.6; /* Luftig tekst */
     margin-bottom: 5px; /* Tettere mellom avsnitt */
     max-width: 500px; /* Sikre at det ikke strekker seg for langt */
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .hero-section h1 span.highlight {
     font-weight: bold;
@@ -154,7 +164,7 @@
 .about {
     text-align: center;
     padding: 60px 20px;
-    background-color: #ffffff;
+    background: none;
 }
 
 .about h2 {
@@ -169,6 +179,7 @@
     justify-content: space-around; /* Jevn avstand mellom elementene */
     gap: 20px; /* Avstand mellom hvert element */
     flex-wrap: wrap; /* Tillat radbryting på små skjermer */
+    background: none;
 }
 
 /* Individuelle funksjoner */
@@ -197,18 +208,19 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%; 
+    min-height: 100%; 
     width: 100%;
-    overflow: hidden;
+    overflow-y: auto;
 }
 body {
     background: linear-gradient(to bottom, #f2d9d0, #ffffff);
+    overflow-y: auto;
 }
 
 .register {
     display: flex;
     padding: 50px 80px; /* Adjust padding as needed */
-    background: linear-gradient(to bottom, #f2d9d0, #ffffff);
+    
     box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
@@ -281,7 +293,10 @@ body {
     margin-top: 15px;
     font-size: 0.9rem;
 }
-/*CALENDAR*/
+
+
+/*----------------CALENDAR---------------*/
+
 .calendar-page {
     background: linear-gradient(to bottom, #f2d9d0, #ffffff);
     padding: 50px 20px;
@@ -355,19 +370,24 @@ body {
     background-color: #b7b5cc;
     color: white;
 }
-/*EDIT PROFILE*/
+
+
+
+
+
+/*----------EDIT PROFILE---------*/
+
 /* Page Wrapper */
+
 .profile-edit-page {
-    background: linear-gradient(to bottom, #f2d9d0, #ffffff);
+    
     padding: 50px 20px;
-    min-height: 100vh;
+    min-height: 30vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-
-
 
 /* Title Styling */
 .page-title {
@@ -386,7 +406,12 @@ label {
 
 /*CALENDAR STYLE*/
 .calendar-page {
-    margin: 20px;
+    padding: 50px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .page-title {
@@ -394,7 +419,12 @@ label {
 }
 
 .calendar-container {
-    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 900px;
+    width: 100%;
 }
 
 .search-bar-container {

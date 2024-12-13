@@ -4,14 +4,19 @@
         flex-direction: column; /* Endrer layout til å være vertikal */
         padding: 50px;
         align-items: center; /* Sentraliserer innholdet */
-        background: linear-gradient(to bottom, #f2d9d0, #ffffff);
+        width: 70%;
         min-height: 80vh;
         box-sizing: border-box;
     }
     
+    .background2 {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start
+    }
     .tasks-page {
         padding: 20px;
-        background: linear-gradient(to bottom, #f2d9d0, #ffffff);
+        
         border-radius: 10px;
     }
     
@@ -29,6 +34,16 @@
     .tasks-header p {
         font-size: 1.4rem;
         color: #555;
+    }
+    
+    .task-form-container {
+        display: flex;
+        flex-direction: column; /* Endrer layout til å være vertikal */
+        padding: 50px;
+        align-items: center; /* Sentraliserer innholdet */
+        width: 70%;
+        min-height: 80vh;
+        box-sizing: border-box;
     }
     
     .create-task-btn {
@@ -103,6 +118,7 @@
     }
 
     /* Generell formstil */
+    
     .form-container {
         background-color: #ffffff;
         border-radius: 15px;
@@ -142,7 +158,12 @@
         width: 20px;
         height: 20px;
     }
-/*SEARCH BAR*/
+
+    
+    
+    
+    /*SEARCH BAR*/
+    
     .search-bar-container {
                   margin: 20px 0;
                   text-align: left;

@@ -18,72 +18,73 @@ ViewData["Title"] = "Create Task";
     </div>
 }
 
-<div class="background">
+<div class="background2">
     <div class="create-task">
-        <div class="section-task tasks-header">
+        <div class="section-task ">
             <h1>Create a new task</h1>
             <p>Organize your task efficiently and ensure you stay on top of your priorities. Set deadlines, add tags, and mark tasks as important with ease!</p>
         </div>
     
-        < class="container-md mt-3">
-        <form asp-action="Create" method="post" class="form">
-            @Html.AntiForgeryToken()
+        <div class="container-md mt-3">
+            <form asp-action="Create" method="post" class="form">
+                @Html.AntiForgeryToken()
 
-            <div class="form-group mb-2">
-                <label asp-for="TaskItem.Title" class="form-label">Title</label>
-                <input asp-for="TaskItem.Title" class="form-control form-control-sm"/>
-                <span asp-validation-for="TaskItem.Title" class="validation-error"></span>
-            </div>
+                <div class="form-group mb-2">
+                    <label asp-for="TaskItem.Title" class="form-label">Title</label>
+                    <input asp-for="TaskItem.Title" class="form-control form-control-sm"/>
+                    <span asp-validation-for="TaskItem.Title" class="validation-error"></span>
+                </div>
 
-            <div class="form-group mb-2">
-                <label asp-for="TaskItem.Description" class="form-label">Description</label>
-                <textarea asp-for="TaskItem.Description" class="form-control form-control-sm"></textarea>
-                <span asp-validation-for="TaskItem.Description" class="validation-error"></span>
-            </div>
+                <div class="form-group mb-2">
+                    <label asp-for="TaskItem.Description" class="form-label">Description</label>
+                    <textarea asp-for="TaskItem.Description" class="form-control form-control-sm"></textarea>
+                    <span asp-validation-for="TaskItem.Description" class="validation-error"></span>
+                </div>
 
-            <div class="form-group mb-2">
-                <label asp-for="TaskItem.DueDate" class="form-label">Due Date</label>
-                <input asp-for="TaskItem.DueDate" class="form-control" type="date"/>
-                <span asp-validation-for="TaskItem.DueDate" class="validation-error"></span>
-            </div>
+                <div class="form-group mb-2">
+                    <label asp-for="TaskItem.DueDate" class="form-label">Due Date</label>
+                    <input asp-for="TaskItem.DueDate" class="form-control" type="date"/>
+                    <span asp-validation-for="TaskItem.DueDate" class="validation-error"></span>
+                </div>
 
-            <div class="form-group mb-2">
-                <label asp-for="TaskItem.Tag" class="form-label">Tag</label>
-                <input asp-for="TaskItem.Tag" class="form-control form-control-sm"/>
-                <span asp-validation-for="TaskItem.Tag" class="validation-error"></span>
-            </div>
+                <div class="form-group mb-2">
+                    <label asp-for="TaskItem.Tag" class="form-label">Tag</label>
+                    <input asp-for="TaskItem.Tag" class="form-control form-control-sm"/>
+                    <span asp-validation-for="TaskItem.Tag" class="validation-error"></span>
+                </div>
 
-            <div class="form-group mb-2">
-                <label asp-for="TaskItem.Priority" class="form-label">Priority</label>
-                <select asp-for="TaskItem.Priority" class="form-select form-select-sm">
-                    <option value="Low">Low</option>
-                    <option value="Normal">Normal</option>
-                    <option value="High">High</option>
-                </select>
-                <span asp-validation-for="TaskItem.Priority" class="validation-error"></span>
-            </div>
+                <div class="form-group mb-2">
+                    <label asp-for="TaskItem.Priority" class="form-label">Priority</label>
+                    <select asp-for="TaskItem.Priority" class="form-select form-select-sm">
+                        <option value="Low">Low</option>
+                        <option value="Normal">Normal</option>
+                        <option value="High">High</option>
+                    </select>
+                    <span asp-validation-for="TaskItem.Priority" class="validation-error"></span>
+                </div>
 
-            <div class="form-group mb-2">
-                <label asp-for="TaskItem.BoardId" class="form-label">Select Board</label>
-                <select asp-for="TaskItem.BoardId" class="form-select form-select-sm">
-                    <option value="">-- Please select a Board --</option>
-                    @foreach (var board in Model.BoardSelectList)
-                    {
-                        <option value="@board.Value">@board.Text</option>
-                    }
-                </select>
-                <span asp-validation-for="TaskItem.BoardId" class="validation-error"></span>
-            </div>
+                <div class="form-group mb-2">
+                    <label asp-for="TaskItem.BoardId" class="form-label">Select Board</label>
+                    <select asp-for="TaskItem.BoardId" class="form-select form-select-sm">
+                        <option value="">-- Please select a Board --</option>
+                        @foreach (var board in Model.BoardSelectList)
+                        {
+                            <option value="@board.Value">@board.Text</option>
+                        }
+                    </select>
+                    <span asp-validation-for="TaskItem.BoardId" class="validation-error"></span>
+                </div>
 
-            <div class="form-check">
-                <input asp-for="TaskItem.IsFlagged" class="form-check-input" type="checkbox"/>
-                <label asp-for="TaskItem.IsFlagged" class="form-check-label">Mark as Important</label>
-            </div>
+                <div class="form-check">
+                    <input asp-for="TaskItem.IsFlagged" class="form-check-input" type="checkbox"/>
+                    <label asp-for="TaskItem.IsFlagged" class="form-check-label">Mark as Important</label>
+                </div>
 
 
-            <button type="submit" class="btn btn-purple">Create Task</button>
-            <a asp-action="Index" class="btn btn-secondary btn-sm">Cancel</a>
-        </form>
+                <button type="submit" class="btn btn-purple">Create Task</button>
+                <a asp-action="Index" class="btn btn-secondary btn-sm">Cancel</a>
+            </form>
+        </div>
     </div>
 </div>
 

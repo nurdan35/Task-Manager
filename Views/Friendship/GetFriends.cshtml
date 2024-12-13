@@ -82,6 +82,8 @@ else
 <h2>Send Friend Request</h2>
 <form id="sendFriendRequestForm" method="post" asp-controller="Friendship" asp-action="SendRequest">
     <input type="text" name="receiverId" placeholder="Enter user ID or email" />
-    <button type="submit">Send Request</button>
+    <button type="submit" class="btn btn-primary">Send Request</button>
 </form>
 <div id="sendRequestMessage" style="margin-top: 10px;"></div>
+
+<a asp-action="Dashboard" asp-controller="Profile" class="btn btn-secondary">Back to Dashboard</a>
